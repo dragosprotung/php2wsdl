@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="localhost" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="PHP2WSDL.Tests.Fixtures.Example1" targetNamespace="localhost">
+  <types>
+    <xsd:schema targetNamespace="localhost">
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+    </xsd:schema>
+  </types>
+  <portType name="PHP2WSDL.Tests.Fixtures.Example1Port">
+    <operation name="__construct">
+      <documentation>Constructor.</documentation>
+      <input message="tns:__constructIn"/>
+    </operation>
+    <operation name="add">
+      <documentation>Adds two numbers.</documentation>
+      <input message="tns:addIn"/>
+      <output message="tns:addOut"/>
+    </operation>
+    <operation name="makeArray">
+      <documentation>Make array.</documentation>
+      <input message="tns:makeArrayIn"/>
+      <output message="tns:makeArrayOut"/>
+    </operation>
+  </portType>
+  <binding name="PHP2WSDL.Tests.Fixtures.Example1Binding" type="tns:PHP2WSDL.Tests.Fixtures.Example1Port">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="__construct">
+      <soap:operation soapAction="localhost#__construct"/>
+      <input>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="localhost"/>
+      </input>
+      <output>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="localhost"/>
+      </output>
+    </operation>
+    <operation name="add">
+      <soap:operation soapAction="localhost#add"/>
+      <input>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="localhost"/>
+      </input>
+      <output>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="localhost"/>
+      </output>
+    </operation>
+    <operation name="makeArray">
+      <soap:operation soapAction="localhost#makeArray"/>
+      <input>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="localhost"/>
+      </input>
+      <output>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="localhost"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="PHP2WSDL.Tests.Fixtures.Example1Service">
+    <port name="PHP2WSDL.Tests.Fixtures.Example1Port" binding="tns:PHP2WSDL.Tests.Fixtures.Example1Binding">
+      <soap:address location="localhost"/>
+    </port>
+  </service>
+  <message name="__constructIn">
+    <part name="param2" type="xsd:string"/>
+  </message>
+  <message name="addIn">
+    <part name="p1" type="xsd:float"/>
+    <part name="p2" type="xsd:float"/>
+  </message>
+  <message name="addOut">
+    <part name="return" type="xsd:float"/>
+  </message>
+  <message name="makeArrayIn">
+    <part name="el1" type="xsd:anyType"/>
+    <part name="el2" type="xsd:anyType"/>
+  </message>
+  <message name="makeArrayOut">
+    <part name="return" type="soap-enc:Array"/>
+  </message>
+</definitions>

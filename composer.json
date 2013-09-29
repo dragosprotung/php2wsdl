@@ -1,0 +1,25 @@
+{
+    "name":"php2wsdl/php2wsdl",
+    "description":"Create WSDL files form PHP classes.",
+    "type":"library",
+    "keywords":[
+        "wsdl, generator, php 2 wsdl"
+    ],
+    "license":"MIT",
+    "authors":[
+        {
+            "name":"Dragos Protung",
+            "email":"dragos@protung.ro",
+            "role":"Developer"
+        }
+    ],
+    "require":{
+        "wingu/reflection":"*"
+    },
+    "autoload":{
+        "psr-0":{
+            "PHP2WSDL\\":"src/",
+			"PHP2WSDL\\Tests":"tests/"
+    	}
+    }
+}

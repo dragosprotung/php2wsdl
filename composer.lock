@@ -1,0 +1,71 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
+    ],
+    "hash": "00d2b11350e28ec64557cacda85e4bac",
+    "packages": [
+        {
+            "name": "wingu/reflection",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Speicher210/Reflection.git",
+                "reference": "7862a732cf68d8f462106921faa1d08c3ef35e33"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Speicher210/Reflection/zipball/7862a732cf68d8f462106921faa1d08c3ef35e33",
+                "reference": "7862a732cf68d8f462106921faa1d08c3ef35e33",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Wingu\\OctopusCore\\Reflection\\": "src/",
+                    "Wingu\\OctopusCore\\Reflection\\Tests": "tests/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dragos Protung",
+                    "email": "dragos.protung@speicher210.com",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Antoine Verger",
+                    "email": "antoine.verger@speicher210.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Wingu OctopusCore Reflection",
+            "keywords": [
+                "reflection"
+            ],
+            "time": "2013-03-13 16:54:23"
+        }
+    ],
+    "packages-dev": [
+
+    ],
+    "aliases": [
+
+    ],
+    "minimum-stability": "stable",
+    "stability-flags": [
+
+    ],
+    "platform": [
+
+    ],
+    "platform-dev": [
+
+    ]
+}
