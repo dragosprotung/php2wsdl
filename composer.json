@@ -3,7 +3,7 @@
     "description":"Create WSDL files form PHP classes.",
     "type":"library",
     "keywords":[
-        "wsdl, generator, php 2 wsdl"
+        "wsdl, generator"
     ],
     "license":"MIT",
     "authors":[
