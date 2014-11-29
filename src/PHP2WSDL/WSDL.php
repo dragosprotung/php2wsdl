@@ -359,13 +359,30 @@ class WSDL
      */
     public function getXSDType($type)
     {
-        if (isset(self::$XSDTypes[strtolower($type)])) {
+        if ($this->isXDSType($type)) {
             return self::$XSDTypes[strtolower($type)];
         } elseif ($type) {
+            if (strpos($type, '[]')) {
+                if ($this->isXDSType(str_replace('[]', '', $type))) {
+                    return self::$XSDTypes['array'];
+                }
+            }
+
             return $this->addComplexType($type);
         } else {
             return null;
         }
+    }
+
+    /**
+     * Check if a type is a XDS.
+     *
+     * @param string $type The type to check.
+     * @return boolean
+     */
+    private function isXDSType($type) {
+        $typeToLowerString = strtolower($type);
+        return isset(self::$XSDTypes[$typeToLowerString]);
     }
 
     /**

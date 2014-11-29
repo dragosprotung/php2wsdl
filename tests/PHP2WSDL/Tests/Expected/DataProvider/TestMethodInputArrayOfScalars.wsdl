@@ -9,11 +9,47 @@
     <operation name="inputArraySimple">
       <input message="tns:inputArraySimpleIn"/>
     </operation>
+    <operation name="inputArrayStrings">
+      <input message="tns:inputArrayStringsIn"/>
+    </operation>
+    <operation name="inputArrayInt">
+      <input message="tns:inputArrayIntIn"/>
+    </operation>
+    <operation name="inputArrayInteger">
+      <input message="tns:inputArrayIntegerIn"/>
+    </operation>
   </portType>
   <binding name="PHP2WSDL.Tests.Fixtures.DataProvider.TestMethodInputArrayOfScalarsBinding" type="tns:PHP2WSDL.Tests.Fixtures.DataProvider.TestMethodInputArrayOfScalarsPort">
     <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
     <operation name="inputArraySimple">
       <soap:operation soapAction="localhost#inputArraySimple"/>
+      <input>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="localhost"/>
+      </input>
+      <output>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="localhost"/>
+      </output>
+    </operation>
+    <operation name="inputArrayStrings">
+      <soap:operation soapAction="localhost#inputArrayStrings"/>
+      <input>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="localhost"/>
+      </input>
+      <output>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="localhost"/>
+      </output>
+    </operation>
+    <operation name="inputArrayInt">
+      <soap:operation soapAction="localhost#inputArrayInt"/>
+      <input>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="localhost"/>
+      </input>
+      <output>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="localhost"/>
+      </output>
+    </operation>
+    <operation name="inputArrayInteger">
+      <soap:operation soapAction="localhost#inputArrayInteger"/>
       <input>
         <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="localhost"/>
       </input>
@@ -29,5 +65,14 @@
   </service>
   <message name="inputArraySimpleIn">
     <part name="array" type="soap-enc:Array"/>
+  </message>
+  <message name="inputArrayStringsIn">
+    <part name="strings" type="soap-enc:Array"/>
+  </message>
+  <message name="inputArrayIntIn">
+    <part name="ints" type="soap-enc:Array"/>
+  </message>
+  <message name="inputArrayIntegerIn">
+    <part name="integers" type="soap-enc:Array"/>
   </message>
 </definitions>
