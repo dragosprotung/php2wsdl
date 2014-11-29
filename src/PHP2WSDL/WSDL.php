@@ -2,15 +2,16 @@
 
 namespace PHP2WSDL;
 
-use Wingu\OctopusCore\Reflection\ReflectionClass;
 use DOMDocument;
 use DOMElement;
 use RuntimeException;
+use Wingu\OctopusCore\Reflection\ReflectionClass;
 
 /**
  * Create a WSDL.
  */
-class WSDL {
+class WSDL
+{
 
     /**
      * The DOMDocument instance.
@@ -45,8 +46,22 @@ class WSDL {
      *
      * @var array
      */
-    protected static $XSDTypes = array('string' => 'xsd:string', 'bool' => 'xsd:boolean', 'boolean' => 'xsd:boolean', 'int' => 'xsd:int', 'integer' => 'xsd:int', 'double' => 'xsd:float', 'float' => 'xsd:float', 'array' => 'soap-enc:Array', 'time' => 'xsd:time', 'datetime' => 'xsd:dateTime', 'anytype' => 'xsd:anyType',
-                    'unknown_type' => 'xsd:anyType', 'mixed' => 'xsd:anyType', 'object' => 'xsd:struct');
+    protected static $XSDTypes = array(
+        'string' => 'xsd:string',
+        'bool' => 'xsd:boolean',
+        'boolean' => 'xsd:boolean',
+        'int' => 'xsd:int',
+        'integer' => 'xsd:int',
+        'double' => 'xsd:float',
+        'float' => 'xsd:float',
+        'array' => 'soap-enc:Array',
+        'time' => 'xsd:time',
+        'datetime' => 'xsd:dateTime',
+        'anytype' => 'xsd:anyType',
+        'unknown_type' => 'xsd:anyType',
+        'mixed' => 'xsd:anyType',
+        'object' => 'xsd:struct'
+    );
 
     /**
      * Constructor.
@@ -55,7 +70,8 @@ class WSDL {
      * @param string $uri URI where the WSDL will be available.
      * @throws RuntimeException If the DOM Document can not be created.
      */
-    public function __construct($name, $uri) {
+    public function __construct($name, $uri)
+    {
         $wsdl = "<?xml version='1.0' ?>
                 <definitions name='" . $name . "' targetNamespace='" . $uri . "'
                     xmlns='http://schemas.xmlsoap.org/wsdl/'
@@ -93,7 +109,8 @@ class WSDL {
      * @return DOMDocument
      * @link http://www.w3.org/TR/wsdl#_messages
      */
-    public function addMessage($name, array $parts) {
+    public function addMessage($name, array $parts)
+    {
         $message = $this->dom->createElement('message');
         $message->setAttribute('name', $name);
 
@@ -122,7 +139,8 @@ class WSDL {
      * @param string $name The name of the portType.
      * @return DOMDocument
      */
-    public function addPortType($name) {
+    public function addPortType($name)
+    {
         $portType = $this->dom->createElement('portType');
         $portType->setAttribute('name', $name);
         $this->wsdl->appendChild($portType);
@@ -137,7 +155,8 @@ class WSDL {
      * @param string $portType The portType to bind.
      * @return DOMDocument
      */
-    public function addBinding($name, $portType) {
+    public function addBinding($name, $portType)
+    {
         $binding = $this->dom->createElement('binding');
         $binding->setAttribute('name', $name);
         $binding->setAttribute('type', $portType);
@@ -156,7 +175,11 @@ class WSDL {
      * @return DOMDocument
      * @link http://www.w3.org/TR/wsdl#_soap:binding
      */
-    public function addSoapBinding(DOMElement $binding, $style = 'rpc', $transport = 'http://schemas.xmlsoap.org/soap/http') {
+    public function addSoapBinding(
+        DOMElement $binding,
+        $style = 'rpc',
+        $transport = 'http://schemas.xmlsoap.org/soap/http'
+    ) {
         $soapBinding = $this->dom->createElement('soap:binding');
         $soapBinding->setAttribute('style', $style);
         $soapBinding->setAttribute('transport', $transport);
@@ -176,7 +199,8 @@ class WSDL {
      * @return DOMDocument
      * @link http://www.w3.org/TR/wsdl#_soap:body
      */
-    public function addBindingOperation(DOMElement $binding, $name, array $input = null, array $output = null) {
+    public function addBindingOperation(DOMElement $binding, $name, array $input = null, array $output = null)
+    {
         $operation = $this->dom->createElement('operation');
         $operation->setAttribute('name', $name);
 
@@ -217,7 +241,8 @@ class WSDL {
      * @return DOMDocument
      * @link http://www.w3.org/TR/wsdl#_request-response
      */
-    public function addPortOperation(DOMElement $portType, $name, $inputMessage = null, $outputMessage = null) {
+    public function addPortOperation(DOMElement $portType, $name, $inputMessage = null, $outputMessage = null)
+    {
         $operation = $this->dom->createElement('operation');
         $operation->setAttribute('name', $name);
 
@@ -246,7 +271,8 @@ class WSDL {
      * @return DOMDocument
      * @link http://www.w3.org/TR/wsdl#_soap:operation
      */
-    public function addSoapOperation(DOMElement $binding, $soapAction) {
+    public function addSoapOperation(DOMElement $binding, $soapAction)
+    {
         $soapOperation = $this->dom->createElement('soap:operation');
         $soapOperation->setAttribute('soapAction', $soapAction);
 
@@ -265,7 +291,8 @@ class WSDL {
      * @return DOMDocument
      * @link http://www.w3.org/TR/wsdl#_services
      */
-    public function addService($name, $portName, $binding, $location) {
+    public function addService($name, $portName, $binding, $location)
+    {
         $service = $this->dom->createElement('service');
         $service->setAttribute('name', $name);
 
@@ -292,7 +319,8 @@ class WSDL {
      * @return DOMDocument
      * @link http://www.w3.org/TR/wsdl#_documentation
      */
-    public function addDocumentation(DOMElement $inputElement, $documentation) {
+    public function addDocumentation(DOMElement $inputElement, $documentation)
+    {
         if ($inputElement === $this) {
             $element = $this->dom->documentElement;
         } else {
@@ -318,7 +346,8 @@ class WSDL {
      * @param string $type The type.
      * @param string $wsdlType The WSDL type.
      */
-    public function addType($type, $wsdlType) {
+    public function addType($type, $wsdlType)
+    {
         $this->includedTypes[$type] = $wsdlType;
     }
 
@@ -328,7 +357,8 @@ class WSDL {
      * @param string $type The type to get the XSD type from.
      * @return string
      */
-    public function getXSDType($type) {
+    public function getXSDType($type)
+    {
         if (isset(self::$XSDTypes[strtolower($type)])) {
             return self::$XSDTypes[strtolower($type)];
         } elseif ($type) {
@@ -344,7 +374,8 @@ class WSDL {
      * @param string $type Name of the class.
      * @return string
      */
-    public function addComplexType($type) {
+    public function addComplexType($type)
+    {
         if (isset($this->includedTypes[$type])) {
             return $this->includedTypes[$type];
         }
@@ -355,7 +386,7 @@ class WSDL {
 
         $class = new ReflectionClass($type);
 
-        $soapTypeName = $this->typeToQName($type);
+        $soapTypeName = static::typeToQName($type);
         $soapType = 'tns:' . $soapTypeName;
 
         $this->addType($type, $soapType);
@@ -390,8 +421,9 @@ class WSDL {
      * @param string $type The original type name.
      * @return string
      */
-    protected function addComplexTypeArray($singularType, $type) {
-        $xsdComplexTypeName = 'ArrayOf' . self::typeToQName($singularType);
+    protected function addComplexTypeArray($singularType, $type)
+    {
+        $xsdComplexTypeName = 'ArrayOf' . static::typeToQName($singularType);
         $xsdComplexType = 'tns:' . $xsdComplexTypeName;
 
         // Register type here to avoid recursion.
@@ -413,7 +445,7 @@ class WSDL {
 
         $xsdAttribute = $this->dom->createElement('xsd:attribute');
         $xsdAttribute->setAttribute('ref', 'soap-enc:arrayType');
-        $xsdAttribute->setAttribute('wsdl:arrayType', 'tns:' . self::typeToQName($singularType) . '[]');
+        $xsdAttribute->setAttribute('wsdl:arrayType', 'tns:' . static::typeToQName($singularType) . '[]');
         $xsdRestriction->appendChild($xsdAttribute);
 
         $this->schema->appendChild($complexType);
@@ -427,7 +459,8 @@ class WSDL {
      * @param array $element An xsd:element represented as an array.
      * @return DOMElement
      */
-    private function parseElement(array $element) {
+    private function parseElement(array $element)
+    {
         $elementXml = $this->dom->createElement('xsd:element');
         foreach ($element as $key => $value) {
             if (in_array($key, array('sequence', 'all', 'choice'))) {
@@ -459,7 +492,8 @@ class WSDL {
      * @param array $element An xsd:element represented as an array.
      * @return string
      */
-    public function addElement(array $element) {
+    public function addElement(array $element)
+    {
         $elementXml = $this->parseElement($element);
         $this->schema->appendChild($elementXml);
         return 'tns:' . $element['name'];
@@ -470,7 +504,8 @@ class WSDL {
      *
      * @return string
      */
-    public function dump() {
+    public function dump()
+    {
         $this->dom->formatOutput = true;
         return $this->dom->saveXML();
     }
@@ -481,7 +516,8 @@ class WSDL {
      * @param string $type The PHP type.
      * @return string
      */
-    public static function typeToQName($type) {
+    public static function typeToQName($type)
+    {
         if ($type[0] === '\\') {
             $type = substr($type, 1);
         }
