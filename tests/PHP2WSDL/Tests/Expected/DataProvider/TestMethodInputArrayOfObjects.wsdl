@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="localhost" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="PHP2WSDL.Tests.Fixtures.DataProvider.TestMethodInputArrayOfObjects" targetNamespace="localhost">
+  <types>
+    <xsd:schema targetNamespace="localhost">
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+      <xsd:complexType name="stdClass">
+        <xsd:all/>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOfstdClass">
+        <xsd:complexContent>
+          <xsd:restriction base="soap-enc:Array">
+            <xsd:attribute ref="soap-enc:arrayType" wsdl:arrayType="tns:stdClass[]"/>
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <portType name="PHP2WSDL.Tests.Fixtures.DataProvider.TestMethodInputArrayOfObjectsPort">
+    <operation name="inputArrayOfObjects">
+      <input message="tns:inputArrayOfObjectsIn"/>
+    </operation>
+  </portType>
+  <binding name="PHP2WSDL.Tests.Fixtures.DataProvider.TestMethodInputArrayOfObjectsBinding" type="tns:PHP2WSDL.Tests.Fixtures.DataProvider.TestMethodInputArrayOfObjectsPort">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="inputArrayOfObjects">
+      <soap:operation soapAction="localhost#inputArrayOfObjects"/>
+      <input>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="localhost"/>
+      </input>
+      <output>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="localhost"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="PHP2WSDL.Tests.Fixtures.DataProvider.TestMethodInputArrayOfObjectsService">
+    <port name="PHP2WSDL.Tests.Fixtures.DataProvider.TestMethodInputArrayOfObjectsPort" binding="tns:PHP2WSDL.Tests.Fixtures.DataProvider.TestMethodInputArrayOfObjectsBinding">
+      <soap:address location="localhost"/>
+    </port>
+  </service>
+  <message name="inputArrayOfObjectsIn">
+    <part name="objects" type="tns:ArrayOfstdClass"/>
+  </message>
+</definitions>

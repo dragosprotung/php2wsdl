@@ -1,18 +1,18 @@
 <?xml version="1.0"?>
-<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="localhost" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="PHP2WSDL.Tests.Fixtures.Example1WithAnnotations" targetNamespace="localhost">
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="localhost" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="PHP2WSDL.Tests.Fixtures.TestSimpleClassWithSoapTagAnnotations" targetNamespace="localhost">
   <types>
     <xsd:schema targetNamespace="localhost">
       <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
     </xsd:schema>
   </types>
-  <portType name="PHP2WSDL.Tests.Fixtures.Example1WithAnnotationsPort">
+  <portType name="PHP2WSDL.Tests.Fixtures.TestSimpleClassWithSoapTagAnnotationsPort">
     <operation name="add">
       <documentation>Adds two numbers.</documentation>
       <input message="tns:addIn"/>
       <output message="tns:addOut"/>
     </operation>
   </portType>
-  <binding name="PHP2WSDL.Tests.Fixtures.Example1WithAnnotationsBinding" type="tns:PHP2WSDL.Tests.Fixtures.Example1WithAnnotationsPort">
+  <binding name="PHP2WSDL.Tests.Fixtures.TestSimpleClassWithSoapTagAnnotationsBinding" type="tns:PHP2WSDL.Tests.Fixtures.TestSimpleClassWithSoapTagAnnotationsPort">
     <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
     <operation name="add">
       <soap:operation soapAction="localhost#add"/>
@@ -24,8 +24,8 @@
       </output>
     </operation>
   </binding>
-  <service name="PHP2WSDL.Tests.Fixtures.Example1WithAnnotationsService">
-    <port name="PHP2WSDL.Tests.Fixtures.Example1WithAnnotationsPort" binding="tns:PHP2WSDL.Tests.Fixtures.Example1WithAnnotationsBinding">
+  <service name="PHP2WSDL.Tests.Fixtures.TestSimpleClassWithSoapTagAnnotationsService">
+    <port name="PHP2WSDL.Tests.Fixtures.TestSimpleClassWithSoapTagAnnotationsPort" binding="tns:PHP2WSDL.Tests.Fixtures.TestSimpleClassWithSoapTagAnnotationsBinding">
       <soap:address location="localhost"/>
     </port>
   </service>
