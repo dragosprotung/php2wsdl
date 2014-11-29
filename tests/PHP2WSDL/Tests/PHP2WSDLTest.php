@@ -8,11 +8,10 @@ use PHP2WSDL\PHPClass2WSDL;
 class PHP2WSDLTest extends \PHPUnit_Framework_TestCase
 {
 
-
     public function testSimpleClassWithSoapTagAnnotations()
     {
         $class = 'PHP2WSDL\Tests\Fixtures\TestSimpleClassWithSoapTagAnnotations';
-        $expectedFile = __DIR__ . '/Expected/testSimpleClassWithSoapTagAnnotations.wsdl';
+        $expectedFile = __DIR__ . '/Expected/TestSimpleClassWithSoapTagAnnotations.wsdl';
 
         $wsdlGenerator = new PHPClass2WSDL($class, 'localhost');
         $wsdlGenerator->generateWSDL(true);
