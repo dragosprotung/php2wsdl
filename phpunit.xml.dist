@@ -7,17 +7,7 @@
         >
     <testsuites>
         <testsuite name="PHP2WSDL Test Suite">
-            <directory>./Tests/</directory>
+            <directory>./tests/</directory>
         </testsuite>
     </testsuites>
-
-    <filter>
-        <whitelist>
-            <directory>./</directory>
-            <exclude>
-                <directory>./Tests</directory>
-                <directory>./vendor</directory>
-            </exclude>
-        </whitelist>
-    </filter>
 </phpunit>
