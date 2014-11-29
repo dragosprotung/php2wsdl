@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="localhost" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="PHP2WSDL.Tests.Fixtures.DataProvider.TestMethodInputArrayOfScalars" targetNamespace="localhost">
+  <types>
+    <xsd:schema targetNamespace="localhost">
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+    </xsd:schema>
+  </types>
+  <portType name="PHP2WSDL.Tests.Fixtures.DataProvider.TestMethodInputArrayOfScalarsPort">
+    <operation name="inputArraySimple">
+      <input message="tns:inputArraySimpleIn"/>
+    </operation>
+  </portType>
+  <binding name="PHP2WSDL.Tests.Fixtures.DataProvider.TestMethodInputArrayOfScalarsBinding" type="tns:PHP2WSDL.Tests.Fixtures.DataProvider.TestMethodInputArrayOfScalarsPort">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="inputArraySimple">
+      <soap:operation soapAction="localhost#inputArraySimple"/>
+      <input>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="localhost"/>
+      </input>
+      <output>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="localhost"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="PHP2WSDL.Tests.Fixtures.DataProvider.TestMethodInputArrayOfScalarsService">
+    <port name="PHP2WSDL.Tests.Fixtures.DataProvider.TestMethodInputArrayOfScalarsPort" binding="tns:PHP2WSDL.Tests.Fixtures.DataProvider.TestMethodInputArrayOfScalarsBinding">
+      <soap:address location="localhost"/>
+    </port>
+  </service>
+  <message name="inputArraySimpleIn">
+    <part name="array" type="soap-enc:Array"/>
+  </message>
+</definitions>
