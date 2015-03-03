@@ -72,21 +72,18 @@ class WSDL
      */
     public function __construct($name, $uri)
     {
-        $wsdl = "<?xml version='1.0' ?>
-                <definitions name='" . $name . "' targetNamespace='" . $uri . "'
-                    xmlns='http://schemas.xmlsoap.org/wsdl/'
-                    xmlns:tns='" . $uri . "'
-                    xmlns:soap='http://schemas.xmlsoap.org/wsdl/soap/'
-                    xmlns:xsd='http://www.w3.org/2001/XMLSchema'
-                    xmlns:soap-enc='http://schemas.xmlsoap.org/soap/encoding/'
-                    xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/'></definitions>";
+        $this->dom = new DOMDocument('1.0');
+        $definitions = $this->dom->createElementNS('http://schemas.xmlsoap.org/wsdl/', 'definitions');
+        $definitions->setAttribute('name', $name);
+        $definitions->setAttribute('targetNamespace', $uri);
+        $definitions->setAttributeNS('http://www.w3.org/2000/xmlns/', 'xmlns:tns', htmlspecialchars($uri));
+        $definitions->setAttributeNS('http://www.w3.org/2000/xmlns/', 'xmlns:soap', 'http://schemas.xmlsoap.org/wsdl/soap/');
+        $definitions->setAttributeNS('http://www.w3.org/2000/xmlns/', 'xmlns:xsd', 'http://www.w3.org/2001/XMLSchema');
+        $definitions->setAttributeNS('http://www.w3.org/2000/xmlns/', 'xmlns:soap-enc', 'http://schemas.xmlsoap.org/soap/encoding/');
+        $definitions->setAttributeNS('http://www.w3.org/2000/xmlns/', 'xmlns:wsdl', 'http://schemas.xmlsoap.org/wsdl/');
+        $this->dom->appendChild($definitions);
 
-        $this->dom = new DOMDocument();
-        if ($this->dom->loadXML($wsdl) === false) {
-            throw new RuntimeException('Could not create DomDocument.');
-        } else {
-            $this->wsdl = $this->dom->documentElement;
-        }
+        $this->wsdl = $this->dom->documentElement;
 
         $this->schema = $this->dom->createElement('xsd:schema');
         $this->schema->setAttribute('targetNamespace', $uri);
@@ -216,14 +213,14 @@ class WSDL
         }
 
         if (is_array($output)) {
-            $outputelement = $this->dom->createElement('output');
+            $outputElement = $this->dom->createElement('output');
             $soapElement = $this->dom->createElement('soap:body');
             foreach ($output as $name => $value) {
                 $soapElement->setAttribute($name, $value);
             }
 
-            $outputelement->appendChild($soapElement);
-            $operation->appendChild($outputelement);
+            $outputElement->appendChild($soapElement);
+            $operation->appendChild($outputElement);
         }
 
         $binding->appendChild($operation);
@@ -380,7 +377,8 @@ class WSDL
      * @param string $type The type to check.
      * @return boolean
      */
-    private function isXDSType($type) {
+    private function isXDSType($type)
+    {
         $typeToLowerString = strtolower($type);
         return isset(self::$XSDTypes[$typeToLowerString]);
     }
@@ -485,9 +483,9 @@ class WSDL
                     $complexType = $this->dom->createElement('xsd:complexType');
                     if (count($value) > 0) {
                         $container = $this->dom->createElement('xsd:' . $key);
-                        foreach ($value as $subelement) {
-                            $subelementXml = $this->parseElement($subelement);
-                            $container->appendChild($subelementXml);
+                        foreach ($value as $subElement) {
+                            $subElementXml = $this->parseElement($subElement);
+                            $container->appendChild($subElementXml);
                         }
 
                         $complexType->appendChild($container);

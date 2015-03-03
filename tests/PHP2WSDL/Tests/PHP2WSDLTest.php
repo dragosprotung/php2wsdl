@@ -50,10 +50,24 @@ class PHP2WSDLTest extends \PHPUnit_Framework_TestCase
     /**
      * @dataProvider dataProviderForTestInBatch
      */
-    public function testInBatch($class, $expectedWSDLFile) {
+    public function testInBatch($class, $expectedWSDLFile)
+    {
         $wsdlGenerator = new PHPClass2WSDL($class, 'localhost');
         $wsdlGenerator->generateWSDL(false);
         $actual = $wsdlGenerator->dump();
+        $this->assertWSDLFileEqualsWSDLString($expectedWSDLFile, $actual);
+    }
+
+    public function testGenerateWSDLForURIWithAllComponents()
+    {
+        $class = 'PHP2WSDL\Tests\Fixtures\TestGenerateWSDLForURIWithAllComponents';
+        $expectedWSDLFile = __DIR__ . '/Expected/TestGenerateWSDLForURIWithAllComponents.wsdl';
+        $uri = 'http://usr:pss@example.com:81/path/file.ext?a=1&b[]=2&b[]=3';
+
+        $wsdlGenerator = new PHPClass2WSDL($class, $uri);
+        $wsdlGenerator->generateWSDL(false);
+        $actual = $wsdlGenerator->dump();
+
         $this->assertWSDLFileEqualsWSDLString($expectedWSDLFile, $actual);
     }
 
