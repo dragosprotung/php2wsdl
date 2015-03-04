@@ -62,7 +62,7 @@ class PHP2WSDLTest extends \PHPUnit_Framework_TestCase
     {
         $class = 'PHP2WSDL\Tests\Fixtures\TestGenerateWSDLForURIWithAllComponents';
         $expectedWSDLFile = __DIR__ . '/Expected/TestGenerateWSDLForURIWithAllComponents.wsdl';
-        $uri = 'http://usr:pss@example.com:81/path/file.ext?a=1&b[]=2&b[]=3';
+        $uri = 'http://usr:pss@example.com:81/path/file.ext?r=a/b/c&a=1&b[]=2&b[]=3';
 
         $wsdlGenerator = new PHPClass2WSDL($class, $uri);
         $wsdlGenerator->generateWSDL(false);
