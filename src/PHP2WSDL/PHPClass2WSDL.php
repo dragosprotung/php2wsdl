@@ -223,12 +223,16 @@ class PHPClass2WSDL
 
         // When using the RPC style, make sure the operation style includes a 'namespace' attribute (WS-I Basic Profile 1.1 R2717).
         if ($this->bindingStyle['style'] === 'rpc' && isset($this->operationBodyStyle['namespace']) === false) {
-            $this->operationBodyStyle['namespace'] = '' . $this->uri;
+            $this->operationBodyStyle['namespace'] = '' . htmlspecialchars($this->uri);
         }
 
         // Add the binding operation.
-        $operation = $this->wsdl->addBindingOperation($binding, $qNameMethodName, $this->operationBodyStyle,
-            $this->operationBodyStyle);
+        $operation = $this->wsdl->addBindingOperation(
+            $binding,
+            $qNameMethodName,
+            $this->operationBodyStyle,
+            $this->operationBodyStyle
+        );
         $this->wsdl->addSoapOperation($operation, $this->uri . '#' . $qNameMethodName);
     }
 

@@ -17,10 +17,10 @@
     <operation name="add">
       <soap:operation soapAction="http://usr:pss@example.com:81/path/file.ext?r=a/b/c&amp;a=1&amp;b[]=2&amp;b[]=3#add"/>
       <input>
-        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://usr:pss@example.com:81/path/file.ext?r=a/b/c&amp;a=1&amp;b[]=2&amp;b[]=3"/>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://usr:pss@example.com:81/path/file.ext?r=a/b/c&amp;amp;a=1&amp;amp;b[]=2&amp;amp;b[]=3"/>
       </input>
       <output>
-        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://usr:pss@example.com:81/path/file.ext?r=a/b/c&amp;a=1&amp;b[]=2&amp;b[]=3"/>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://usr:pss@example.com:81/path/file.ext?r=a/b/c&amp;amp;a=1&amp;amp;b[]=2&amp;amp;b[]=3"/>
       </output>
     </operation>
   </binding>
