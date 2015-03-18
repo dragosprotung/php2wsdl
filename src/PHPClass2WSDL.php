@@ -207,12 +207,7 @@ class PHPClass2WSDL
                 'tns:' . $qNameMethodName . 'Out'
             );
         } else {
-            $portOperation = $this->wsdl->addPortOperation(
-                $port,
-                $qNameMethodName,
-                'tns:' . $qNameMethodName . 'In',
-                false
-            );
+            $portOperation = $this->wsdl->addPortOperation($port, $qNameMethodName, 'tns:' . $qNameMethodName . 'In');
         }
 
         // Add any documentation for the operation.

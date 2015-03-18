@@ -103,7 +103,7 @@ class WSDL
      *
      * @param string $name The name for the message.
      * @param array $parts Array of parts for the message ('name'=>'type' or 'name'=>array('type'=>'type', 'element'=>'element')).
-     * @return DOMDocument
+     * @return DOMElement
      * @link http://www.w3.org/TR/wsdl#_messages
      */
     public function addMessage($name, array $parts)
@@ -134,7 +134,7 @@ class WSDL
      * Add a portType to element to the WSDL.
      *
      * @param string $name The name of the portType.
-     * @return DOMDocument
+     * @return DOMElement
      */
     public function addPortType($name)
     {
@@ -150,7 +150,7 @@ class WSDL
      *
      * @param string $name The name of the binding.
      * @param string $portType The portType to bind.
-     * @return DOMDocument
+     * @return DOMElement
      */
     public function addBinding($name, $portType)
     {
@@ -169,7 +169,7 @@ class WSDL
      * @param DOMElement $binding The binding element (from addBinding() method).
      * @param string $style The binding style (rpc or document).
      * @param string $transport The transport method.
-     * @return DOMDocument
+     * @return DOMElement
      * @link http://www.w3.org/TR/wsdl#_soap:binding
      */
     public function addSoapBinding(
@@ -193,7 +193,7 @@ class WSDL
      * @param string $name The name of the operation.
      * @param array $input Attributes for the input element (use, namespace, encodingStyle).
      * @param array $output Attributes for the output element (use, namespace, encodingStyle).
-     * @return DOMDocument
+     * @return DOMElement
      * @link http://www.w3.org/TR/wsdl#_soap:body
      */
     public function addBindingOperation(DOMElement $binding, $name, array $input = null, array $output = null)
@@ -235,7 +235,7 @@ class WSDL
      * @param string $name The name of the operation.
      * @param string $inputMessage The input message.
      * @param string $outputMessage The output message.
-     * @return DOMDocument
+     * @return DOMElement
      * @link http://www.w3.org/TR/wsdl#_request-response
      */
     public function addPortOperation(DOMElement $portType, $name, $inputMessage = null, $outputMessage = null)
@@ -265,7 +265,7 @@ class WSDL
      *
      * @param DOMElement $binding The binding element (from addBindingOperation() method).
      * @param string $soapAction SOAP Action.
-     * @return DOMDocument
+     * @return DOMElement
      * @link http://www.w3.org/TR/wsdl#_soap:operation
      */
     public function addSoapOperation(DOMElement $binding, $soapAction)
@@ -285,7 +285,7 @@ class WSDL
      * @param string $portName Port name.
      * @param string $binding Binding for the port.
      * @param string $location SOAP Address location.
-     * @return DOMDocument
+     * @return DOMElement
      * @link http://www.w3.org/TR/wsdl#_services
      */
     public function addService($name, $portName, $binding, $location)
@@ -313,7 +313,7 @@ class WSDL
      *
      * @param DOMElement $inputElement The DOMElement element to add the documentation.
      * @param string $documentation The documentation text.
-     * @return DOMDocument
+     * @return DOMElement
      * @link http://www.w3.org/TR/wsdl#_documentation
      */
     public function addDocumentation(DOMElement $inputElement, $documentation)
