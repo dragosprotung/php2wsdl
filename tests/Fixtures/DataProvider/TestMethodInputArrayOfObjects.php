@@ -1,6 +1,6 @@
 <?php
 
-namespace PHP2WSDL\Tests\Fixtures\DataProvider;
+namespace PHP2WSDL\Test\Fixtures\DataProvider;
 
 class TestMethodInputArrayOfObjects {
 

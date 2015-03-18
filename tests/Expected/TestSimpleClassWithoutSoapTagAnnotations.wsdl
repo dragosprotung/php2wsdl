@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
-<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="localhost" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="PHP2WSDL.Tests.Fixtures.TestSimpleClassWithoutSoapTagAnnotations" targetNamespace="localhost">
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="localhost" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="PHP2WSDL.Test.Fixtures.TestSimpleClassWithoutSoapTagAnnotations" targetNamespace="localhost">
   <types>
     <xsd:schema targetNamespace="localhost">
       <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
     </xsd:schema>
   </types>
-  <portType name="PHP2WSDL.Tests.Fixtures.TestSimpleClassWithoutSoapTagAnnotationsPort">
+  <portType name="PHP2WSDL.Test.Fixtures.TestSimpleClassWithoutSoapTagAnnotationsPort">
     <operation name="__construct">
       <documentation>Constructor.</documentation>
       <input message="tns:__constructIn"/>
@@ -21,7 +21,7 @@
       <output message="tns:makeArrayOut"/>
     </operation>
   </portType>
-  <binding name="PHP2WSDL.Tests.Fixtures.TestSimpleClassWithoutSoapTagAnnotationsBinding" type="tns:PHP2WSDL.Tests.Fixtures.TestSimpleClassWithoutSoapTagAnnotationsPort">
+  <binding name="PHP2WSDL.Test.Fixtures.TestSimpleClassWithoutSoapTagAnnotationsBinding" type="tns:PHP2WSDL.Test.Fixtures.TestSimpleClassWithoutSoapTagAnnotationsPort">
     <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
     <operation name="__construct">
       <soap:operation soapAction="localhost#__construct"/>
@@ -51,8 +51,8 @@
       </output>
     </operation>
   </binding>
-  <service name="PHP2WSDL.Tests.Fixtures.TestSimpleClassWithoutSoapTagAnnotationsService">
-    <port name="PHP2WSDL.Tests.Fixtures.TestSimpleClassWithoutSoapTagAnnotationsPort" binding="tns:PHP2WSDL.Tests.Fixtures.TestSimpleClassWithoutSoapTagAnnotationsBinding">
+  <service name="PHP2WSDL.Test.Fixtures.TestSimpleClassWithoutSoapTagAnnotationsService">
+    <port name="PHP2WSDL.Test.Fixtures.TestSimpleClassWithoutSoapTagAnnotationsPort" binding="tns:PHP2WSDL.Test.Fixtures.TestSimpleClassWithoutSoapTagAnnotationsBinding">
       <soap:address location="localhost"/>
     </port>
   </service>

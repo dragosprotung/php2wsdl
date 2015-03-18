@@ -1,11 +1,11 @@
 <?php
 
-namespace PHP2WSDL\Tests\Fixtures;
+namespace PHP2WSDL\Test\Fixtures;
 
 /**
- * Example class without @soap annotation.
+ * Example class with @soap annotation.
  */
-class TestSimpleClassWithoutSoapTagAnnotations
+class TestSimpleClassWithSoapTagAnnotations
 {
 
     public $param1 = array();
@@ -24,6 +24,8 @@ class TestSimpleClassWithoutSoapTagAnnotations
 
     /**
      * Adds two numbers.
+     *
+     * @soap
      *
      * @param float $p1
      * @param float $p2

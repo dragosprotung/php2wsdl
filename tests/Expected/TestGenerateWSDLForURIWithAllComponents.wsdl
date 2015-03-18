@@ -1,18 +1,18 @@
 <?xml version="1.0"?>
-<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://usr:pss@example.com:81/path/file.ext?r=a/b/c&amp;a=1&amp;b[]=2&amp;b[]=3" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="PHP2WSDL.Tests.Fixtures.TestGenerateWSDLForURIWithAllComponents" targetNamespace="http://usr:pss@example.com:81/path/file.ext?r=a/b/c&amp;a=1&amp;b[]=2&amp;b[]=3">
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://usr:pss@example.com:81/path/file.ext?r=a/b/c&amp;a=1&amp;b[]=2&amp;b[]=3" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="PHP2WSDL.Test.Fixtures.TestGenerateWSDLForURIWithAllComponents" targetNamespace="http://usr:pss@example.com:81/path/file.ext?r=a/b/c&amp;a=1&amp;b[]=2&amp;b[]=3">
   <types>
     <xsd:schema targetNamespace="http://usr:pss@example.com:81/path/file.ext?r=a/b/c&amp;a=1&amp;b[]=2&amp;b[]=3">
       <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
     </xsd:schema>
   </types>
-  <portType name="PHP2WSDL.Tests.Fixtures.TestGenerateWSDLForURIWithAllComponentsPort">
+  <portType name="PHP2WSDL.Test.Fixtures.TestGenerateWSDLForURIWithAllComponentsPort">
     <operation name="add">
       <documentation>Adds two numbers.</documentation>
       <input message="tns:addIn"/>
       <output message="tns:addOut"/>
     </operation>
   </portType>
-  <binding name="PHP2WSDL.Tests.Fixtures.TestGenerateWSDLForURIWithAllComponentsBinding" type="tns:PHP2WSDL.Tests.Fixtures.TestGenerateWSDLForURIWithAllComponentsPort">
+  <binding name="PHP2WSDL.Test.Fixtures.TestGenerateWSDLForURIWithAllComponentsBinding" type="tns:PHP2WSDL.Test.Fixtures.TestGenerateWSDLForURIWithAllComponentsPort">
     <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
     <operation name="add">
       <soap:operation soapAction="http://usr:pss@example.com:81/path/file.ext?r=a/b/c&amp;a=1&amp;b[]=2&amp;b[]=3#add"/>
@@ -24,8 +24,8 @@
       </output>
     </operation>
   </binding>
-  <service name="PHP2WSDL.Tests.Fixtures.TestGenerateWSDLForURIWithAllComponentsService">
-    <port name="PHP2WSDL.Tests.Fixtures.TestGenerateWSDLForURIWithAllComponentsPort" binding="tns:PHP2WSDL.Tests.Fixtures.TestGenerateWSDLForURIWithAllComponentsBinding">
+  <service name="PHP2WSDL.Test.Fixtures.TestGenerateWSDLForURIWithAllComponentsService">
+    <port name="PHP2WSDL.Test.Fixtures.TestGenerateWSDLForURIWithAllComponentsPort" binding="tns:PHP2WSDL.Test.Fixtures.TestGenerateWSDLForURIWithAllComponentsBinding">
       <soap:address location="http://usr:pss@example.com:81/path/file.ext?r=a/b/c&amp;a=1&amp;b[]=2&amp;b[]=3"/>
     </port>
   </service>

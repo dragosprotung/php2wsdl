@@ -1,6 +1,6 @@
 <?php
 
-namespace PHP2WSDL\Tests\Fixtures;
+namespace PHP2WSDL\Test\Fixtures;
 
 /**
  * Fixture class.
