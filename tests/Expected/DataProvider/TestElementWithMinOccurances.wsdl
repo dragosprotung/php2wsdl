@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="localhost" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="PHP2WSDL.Test.Fixtures.DataProvider.TestElementWithMinOccurances" targetNamespace="localhost">
+  <types>
+    <xsd:schema targetNamespace="localhost">
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+      <xsd:complexType name="PHP2WSDL.Test.Stub.MinOccurance">
+        <xsd:all>
+          <xsd:element name="nonRequiredString" type="xsd:string" minOccurs="0"/>
+          <xsd:element name="stringWithNegativeMinOccurs" type="xsd:string" minOccurs="0"/>
+          <xsd:element name="atLeast3TimesString" type="xsd:string" minOccurs="3"/>
+        </xsd:all>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <portType name="PHP2WSDL.Test.Fixtures.DataProvider.TestElementWithMinOccurancesPort">
+    <operation name="inputObject">
+      <input message="tns:inputObjectIn"/>
+    </operation>
+  </portType>
+  <binding name="PHP2WSDL.Test.Fixtures.DataProvider.TestElementWithMinOccurancesBinding" type="tns:PHP2WSDL.Test.Fixtures.DataProvider.TestElementWithMinOccurancesPort">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="inputObject">
+      <soap:operation soapAction="localhost#inputObject"/>
+      <input>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="localhost"/>
+      </input>
+      <output>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="localhost"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="PHP2WSDL.Test.Fixtures.DataProvider.TestElementWithMinOccurancesService">
+    <port name="PHP2WSDL.Test.Fixtures.DataProvider.TestElementWithMinOccurancesPort" binding="tns:PHP2WSDL.Test.Fixtures.DataProvider.TestElementWithMinOccurancesBinding">
+      <soap:address location="localhost"/>
+    </port>
+  </service>
+  <message name="inputObjectIn">
+    <part name="object" type="tns:PHP2WSDL.Test.Stub.MinOccurance"/>
+  </message>
+</definitions>

@@ -416,6 +416,14 @@ class WSDL
                 if ($property->getReflectionDocComment()->getAnnotationsCollection()->hasAnnotationTag('nillable')) {
                     $element->setAttribute('nillable', 'true');
                 }
+                if ($property->getReflectionDocComment()->getAnnotationsCollection()->hasAnnotationTag('minOccurs')) {
+                    $minOccurs = intval($property->getReflectionDocComment()->getAnnotationsCollection()->getAnnotation('minOccurs')[0]->getDescription());
+                    $element->setAttribute('minOccurs', $minOccurs > 0 ? $minOccurs : 0);
+                }
+                if ($property->getReflectionDocComment()->getAnnotationsCollection()->hasAnnotationTag('maxOccurs')) {
+                    $maxOccurs = intval($property->getReflectionDocComment()->getAnnotationsCollection()->getAnnotation('maxOccurs')[0]->getDescription());
+                    $element->setAttribute('maxOccurs', $maxOccurs > 0 ? $maxOccurs : 'unbounded');
+                }
                 $all->appendChild($element);
             }
         }

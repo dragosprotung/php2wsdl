@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="localhost" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="PHP2WSDL.Test.Fixtures.DataProvider.TestElementWithMaxOccurances" targetNamespace="localhost">
+  <types>
+    <xsd:schema targetNamespace="localhost">
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+      <xsd:complexType name="PHP2WSDL.Test.Stub.MaxOccurance">
+        <xsd:all>
+          <xsd:element name="string4Times" type="xsd:string" maxOccurs="4"/>
+          <xsd:element name="unboundedString" type="xsd:string" maxOccurs="unbounded"/>
+          <xsd:element name="stringWithInvalidMaxOccurs" type="xsd:string" maxOccurs="unbounded"/>
+        </xsd:all>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <portType name="PHP2WSDL.Test.Fixtures.DataProvider.TestElementWithMaxOccurancesPort">
+    <operation name="inputObject">
+      <input message="tns:inputObjectIn"/>
+    </operation>
+  </portType>
+  <binding name="PHP2WSDL.Test.Fixtures.DataProvider.TestElementWithMaxOccurancesBinding" type="tns:PHP2WSDL.Test.Fixtures.DataProvider.TestElementWithMaxOccurancesPort">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="inputObject">
+      <soap:operation soapAction="localhost#inputObject"/>
+      <input>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="localhost"/>
+      </input>
+      <output>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="localhost"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="PHP2WSDL.Test.Fixtures.DataProvider.TestElementWithMaxOccurancesService">
+    <port name="PHP2WSDL.Test.Fixtures.DataProvider.TestElementWithMaxOccurancesPort" binding="tns:PHP2WSDL.Test.Fixtures.DataProvider.TestElementWithMaxOccurancesBinding">
+      <soap:address location="localhost"/>
+    </port>
+  </service>
+  <message name="inputObjectIn">
+    <part name="object" type="tns:PHP2WSDL.Test.Stub.MaxOccurance"/>
+  </message>
+</definitions>
