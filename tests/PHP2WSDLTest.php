@@ -43,7 +43,6 @@ class PHP2WSDLTest extends \PHPUnit_Framework_TestCase
                 );
             }
         }
-
         return $data;
     }
 

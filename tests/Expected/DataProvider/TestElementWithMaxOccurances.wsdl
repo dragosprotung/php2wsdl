@@ -4,11 +4,12 @@
     <xsd:schema targetNamespace="localhost">
       <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
       <xsd:complexType name="PHP2WSDL.Test.Stub.MaxOccurance">
-        <xsd:all>
+        <xsd:sequence>
+          <xsd:element name="normalValue" type="xsd:string"/>
           <xsd:element name="string4Times" type="xsd:string" maxOccurs="4"/>
           <xsd:element name="unboundedString" type="xsd:string" maxOccurs="unbounded"/>
           <xsd:element name="stringWithInvalidMaxOccurs" type="xsd:string" maxOccurs="unbounded"/>
-        </xsd:all>
+        </xsd:sequence>
       </xsd:complexType>
     </xsd:schema>
   </types>

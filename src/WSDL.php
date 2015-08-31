@@ -420,10 +420,16 @@ class WSDL
                 if ($annotationsCollection->hasAnnotationTag('minOccurs')) {
                     $minOccurs = intval($annotationsCollection->getAnnotation('minOccurs')[0]->getDescription());
                     $element->setAttribute('minOccurs', $minOccurs > 0 ? $minOccurs : 0);
+                    if ($minOccurs > 1) {
+                        $all = $this->changeAllToSequence($all);
+                    }
                 }
                 if ($annotationsCollection->hasAnnotationTag('maxOccurs')) {
                     $maxOccurs = intval($annotationsCollection->getAnnotation('maxOccurs')[0]->getDescription());
                     $element->setAttribute('maxOccurs', $maxOccurs > 0 ? $maxOccurs : 'unbounded');
+                    if ($maxOccurs !== 1) {
+                        $all = $this->changeAllToSequence($all);
+                    }
                 }
                 $all->appendChild($element);
             }
@@ -548,4 +554,28 @@ class WSDL
 
         return str_replace('\\', '.', $type);
     }
+
+    /**
+     * Changes the xs:all to an xs:sequence node
+     *
+     * @param \DOMElement $all
+     * @return \DOMElement
+     */
+    private function changeAllToSequence($all)
+    {
+        if ($all->nodeName !== 'xsd:all') {
+            return $all;
+        }
+        $sequence = $all->ownerDocument->createElement('xsd:sequence');
+        if ($all->attributes->length) {
+            foreach ($all->attributes as $attribute) {
+                $sequence->setAttribute($attribute->nodeName, $attribute->nodeValue);
+            }
+        }
+        while ($all->firstChild) {
+            $sequence->appendChild($all->firstChild);
+        }
+        return $sequence;
+    }
+
 }
