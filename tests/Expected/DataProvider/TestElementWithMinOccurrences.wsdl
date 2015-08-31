@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
-<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="localhost" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="PHP2WSDL.Test.Fixtures.DataProvider.TestElementWithMinOccurances" targetNamespace="localhost">
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="localhost" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="PHP2WSDL.Test.Fixtures.DataProvider.TestElementWithMinOccurrences" targetNamespace="localhost">
   <types>
     <xsd:schema targetNamespace="localhost">
       <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
-      <xsd:complexType name="PHP2WSDL.Test.Stub.MinOccurance">
+      <xsd:complexType name="PHP2WSDL.Test.Stub.MinOccurrences">
         <xsd:sequence>
           <xsd:element name="normalValue" type="xsd:string"/>
           <xsd:element name="nonRequiredString" type="xsd:string" minOccurs="0"/>
@@ -13,12 +13,12 @@
       </xsd:complexType>
     </xsd:schema>
   </types>
-  <portType name="PHP2WSDL.Test.Fixtures.DataProvider.TestElementWithMinOccurancesPort">
+  <portType name="PHP2WSDL.Test.Fixtures.DataProvider.TestElementWithMinOccurrencesPort">
     <operation name="inputObject">
       <input message="tns:inputObjectIn"/>
     </operation>
   </portType>
-  <binding name="PHP2WSDL.Test.Fixtures.DataProvider.TestElementWithMinOccurancesBinding" type="tns:PHP2WSDL.Test.Fixtures.DataProvider.TestElementWithMinOccurancesPort">
+  <binding name="PHP2WSDL.Test.Fixtures.DataProvider.TestElementWithMinOccurrencesBinding" type="tns:PHP2WSDL.Test.Fixtures.DataProvider.TestElementWithMinOccurrencesPort">
     <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
     <operation name="inputObject">
       <soap:operation soapAction="localhost#inputObject"/>
@@ -30,12 +30,12 @@
       </output>
     </operation>
   </binding>
-  <service name="PHP2WSDL.Test.Fixtures.DataProvider.TestElementWithMinOccurancesService">
-    <port name="PHP2WSDL.Test.Fixtures.DataProvider.TestElementWithMinOccurancesPort" binding="tns:PHP2WSDL.Test.Fixtures.DataProvider.TestElementWithMinOccurancesBinding">
+  <service name="PHP2WSDL.Test.Fixtures.DataProvider.TestElementWithMinOccurrencesService">
+    <port name="PHP2WSDL.Test.Fixtures.DataProvider.TestElementWithMinOccurrencesPort" binding="tns:PHP2WSDL.Test.Fixtures.DataProvider.TestElementWithMinOccurrencesBinding">
       <soap:address location="localhost"/>
     </port>
   </service>
   <message name="inputObjectIn">
-    <part name="object" type="tns:PHP2WSDL.Test.Stub.MinOccurance"/>
+    <part name="object" type="tns:PHP2WSDL.Test.Stub.MinOccurrences"/>
   </message>
 </definitions>

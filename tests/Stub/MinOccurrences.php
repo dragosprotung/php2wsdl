@@ -5,7 +5,8 @@ namespace PHP2WSDL\Test\Stub;
 /**
  * Dummy class containing a minOccurs attribute
  */
-class MinOccurance {
+class MinOccurrences
+{
 
     /**
      * @var string

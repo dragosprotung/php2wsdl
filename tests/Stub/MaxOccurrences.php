@@ -5,7 +5,8 @@ namespace PHP2WSDL\Test\Stub;
 /**
  * Dummy class containing a maxOccurs attribute
  */
-class MaxOccurance {
+class MaxOccurrences
+{
 
     /**
      * @var string

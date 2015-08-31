@@ -133,6 +133,7 @@ class PHPClass2WSDL
         $annotations = array();
         $methodAnnotationsCollection = $method->getReflectionDocComment()->getAnnotationsCollection();
         if ($methodAnnotationsCollection->hasAnnotationTag('param')) {
+            /** @var \Wingu\OctopusCore\Reflection\Annotation\Tags\ParamTag $param */
             foreach ($methodAnnotationsCollection->getAnnotation('param') as $param) {
                 $annotations[$param->getParamName()] = $param;
             }
@@ -140,6 +141,7 @@ class PHPClass2WSDL
 
         if ($this->bindingStyle['style'] === 'document') {
             $sequence = array();
+            /** @var \Wingu\OctopusCore\Reflection\ReflectionParameter $param */
             foreach ($method->getParameters() as $param) {
                 $type = 'anytype';
                 if (isset($annotations['$' . $param->getName()])) {
@@ -157,6 +159,7 @@ class PHPClass2WSDL
             $element = array('name' => $qNameMethodName, 'sequence' => $sequence);
             $args['parameters'] = array('element' => $this->wsdl->addElement($element));
         } else {
+            /** @var \Wingu\OctopusCore\Reflection\ReflectionParameter $param */
             foreach ($method->getParameters() as $param) {
                 $type = 'anytype';
                 if (isset($annotations['$' . $param->getName()])) {

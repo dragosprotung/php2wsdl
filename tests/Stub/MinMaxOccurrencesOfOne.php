@@ -5,7 +5,8 @@ namespace PHP2WSDL\Test\Stub;
 /**
  * Dummy class containing a minOccurs and a maxOccurs attribute both with a value of 1
  */
-class MinMaxOccuranceOfOne {
+class MinMaxOccurrencesOfOne
+{
 
     /**
      * @var string
