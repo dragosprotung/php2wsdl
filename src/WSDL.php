@@ -408,20 +408,21 @@ class WSDL
 
         $all = $this->dom->createElement('xsd:all');
         foreach ($class->getProperties() as $property) {
-            if ($property->isPublic() && $property->getReflectionDocComment()->getAnnotationsCollection()->hasAnnotationTag('var')) {
+            $annotationsCollection = $property->getReflectionDocComment()->getAnnotationsCollection();
+            if ($property->isPublic() && $annotationsCollection->hasAnnotationTag('var')) {
                 $element = $this->dom->createElement('xsd:element');
                 $element->setAttribute('name', $property->getName());
-                $propertyVarAnnotation = $property->getReflectionDocComment()->getAnnotationsCollection()->getAnnotation('var');
+                $propertyVarAnnotation = $annotationsCollection->getAnnotation('var');
                 $element->setAttribute('type', $this->getXSDType(reset($propertyVarAnnotation)->getVarType()));
-                if ($property->getReflectionDocComment()->getAnnotationsCollection()->hasAnnotationTag('nillable')) {
+                if ($annotationsCollection->hasAnnotationTag('nillable')) {
                     $element->setAttribute('nillable', 'true');
                 }
-                if ($property->getReflectionDocComment()->getAnnotationsCollection()->hasAnnotationTag('minOccurs')) {
-                    $minOccurs = intval($property->getReflectionDocComment()->getAnnotationsCollection()->getAnnotation('minOccurs')[0]->getDescription());
+                if ($annotationsCollection->hasAnnotationTag('minOccurs')) {
+                    $minOccurs = intval($annotationsCollection->getAnnotation('minOccurs')[0]->getDescription());
                     $element->setAttribute('minOccurs', $minOccurs > 0 ? $minOccurs : 0);
                 }
-                if ($property->getReflectionDocComment()->getAnnotationsCollection()->hasAnnotationTag('maxOccurs')) {
-                    $maxOccurs = intval($property->getReflectionDocComment()->getAnnotationsCollection()->getAnnotation('maxOccurs')[0]->getDescription());
+                if ($annotationsCollection->hasAnnotationTag('maxOccurs')) {
+                    $maxOccurs = intval($annotationsCollection->getAnnotation('maxOccurs')[0]->getDescription());
                     $element->setAttribute('maxOccurs', $maxOccurs > 0 ? $maxOccurs : 'unbounded');
                 }
                 $all->appendChild($element);
