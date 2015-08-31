@@ -9,6 +9,11 @@ class MinOccurance {
 
     /**
      * @var string
+     */
+    public $normalValue;
+
+    /**
+     * @var string
      * @minOccurs 0
      */
     public $nonRequiredString;

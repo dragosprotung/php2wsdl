@@ -9,6 +9,11 @@ class MaxOccurance {
 
     /**
      * @var string
+     */
+    public $normalValue;
+
+    /**
+     * @var string
      * @maxOccurs 4
      */
     public $string4Times;

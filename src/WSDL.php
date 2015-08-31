@@ -408,21 +408,28 @@ class WSDL
 
         $all = $this->dom->createElement('xsd:all');
         foreach ($class->getProperties() as $property) {
-            if ($property->isPublic() && $property->getReflectionDocComment()->getAnnotationsCollection()->hasAnnotationTag('var')) {
+            $annotationsCollection = $property->getReflectionDocComment()->getAnnotationsCollection();
+            if ($property->isPublic() && $annotationsCollection->hasAnnotationTag('var')) {
                 $element = $this->dom->createElement('xsd:element');
                 $element->setAttribute('name', $property->getName());
-                $propertyVarAnnotation = $property->getReflectionDocComment()->getAnnotationsCollection()->getAnnotation('var');
+                $propertyVarAnnotation = $annotationsCollection->getAnnotation('var');
                 $element->setAttribute('type', $this->getXSDType(reset($propertyVarAnnotation)->getVarType()));
-                if ($property->getReflectionDocComment()->getAnnotationsCollection()->hasAnnotationTag('nillable')) {
+                if ($annotationsCollection->hasAnnotationTag('nillable')) {
                     $element->setAttribute('nillable', 'true');
                 }
-                if ($property->getReflectionDocComment()->getAnnotationsCollection()->hasAnnotationTag('minOccurs')) {
-                    $minOccurs = intval($property->getReflectionDocComment()->getAnnotationsCollection()->getAnnotation('minOccurs')[0]->getDescription());
+                if ($annotationsCollection->hasAnnotationTag('minOccurs')) {
+                    $minOccurs = intval($annotationsCollection->getAnnotation('minOccurs')[0]->getDescription());
                     $element->setAttribute('minOccurs', $minOccurs > 0 ? $minOccurs : 0);
+                    if ($minOccurs > 1) {
+                        $all = $this->changeAllToSequence($all);
+                    }
                 }
-                if ($property->getReflectionDocComment()->getAnnotationsCollection()->hasAnnotationTag('maxOccurs')) {
-                    $maxOccurs = intval($property->getReflectionDocComment()->getAnnotationsCollection()->getAnnotation('maxOccurs')[0]->getDescription());
+                if ($annotationsCollection->hasAnnotationTag('maxOccurs')) {
+                    $maxOccurs = intval($annotationsCollection->getAnnotation('maxOccurs')[0]->getDescription());
                     $element->setAttribute('maxOccurs', $maxOccurs > 0 ? $maxOccurs : 'unbounded');
+                    if ($maxOccurs !== 1) {
+                        $all = $this->changeAllToSequence($all);
+                    }
                 }
                 $all->appendChild($element);
             }
@@ -547,4 +554,28 @@ class WSDL
 
         return str_replace('\\', '.', $type);
     }
+
+    /**
+     * Changes the xs:all to an xs:sequence node
+     *
+     * @param \DOMElement $all
+     * @return \DOMElement
+     */
+    private function changeAllToSequence($all)
+    {
+        if ($all->nodeName !== 'xsd:all') {
+            return $all;
+        }
+        $sequence = $all->ownerDocument->createElement('xsd:sequence');
+        if ($all->attributes->length) {
+            foreach ($all->attributes as $attribute) {
+                $sequence->setAttribute($attribute->nodeName, $attribute->nodeValue);
+            }
+        }
+        while ($all->firstChild) {
+            $sequence->appendChild($all->firstChild);
+        }
+        return $sequence;
+    }
+
 }
