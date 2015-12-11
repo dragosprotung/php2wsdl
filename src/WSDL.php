@@ -60,7 +60,8 @@ class WSDL
         'anytype' => 'xsd:anyType',
         'unknown_type' => 'xsd:anyType',
         'mixed' => 'xsd:anyType',
-        'object' => 'xsd:struct'
+        'object' => 'xsd:struct',
+        'decimal'=>'xsd:decimal'
     );
 
     /**
