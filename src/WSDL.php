@@ -54,14 +54,14 @@ class WSDL
         'integer' => 'xsd:int',
         'double' => 'xsd:float',
         'float' => 'xsd:float',
+        'decimal'=>'xsd:decimal',
         'array' => 'soap-enc:Array',
         'time' => 'xsd:time',
         'datetime' => 'xsd:dateTime',
         'anytype' => 'xsd:anyType',
         'unknown_type' => 'xsd:anyType',
         'mixed' => 'xsd:anyType',
-        'object' => 'xsd:struct',
-        'decimal'=>'xsd:decimal'
+        'object' => 'xsd:struct'
     );
 
     /**
