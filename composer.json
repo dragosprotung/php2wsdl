@@ -12,8 +12,7 @@
     "authors": [
         {
             "name": "Dragos Protung",
-            "email": "dragos@protung.ro",
-            "role": "Developer"
+            "email": "dragos@protung.ro"
         }
     ],
     "require": {
@@ -21,7 +20,7 @@
         "wingu/reflection": "~1.0"
     },
     "require-dev": {
-        "phpunit/phpunit" : "~4.5",
+        "phpunit/phpunit" : "~4.8",
         "scrutinizer/ocular": "~1.1"
     },
     "autoload": {

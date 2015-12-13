@@ -18,6 +18,12 @@
     <operation name="inputArrayInteger">
       <input message="tns:inputArrayIntegerIn"/>
     </operation>
+    <operation name="inputArrayDecimal">
+      <input message="tns:inputArrayDecimalIn"/>
+    </operation>
+    <operation name="inputArrayFloat">
+      <input message="tns:inputArrayFloatIn"/>
+    </operation>
   </portType>
   <binding name="PHP2WSDL.Test.Fixtures.DataProvider.TestMethodInputArrayOfScalarsBinding" type="tns:PHP2WSDL.Test.Fixtures.DataProvider.TestMethodInputArrayOfScalarsPort">
     <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
@@ -57,6 +63,24 @@
         <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="localhost"/>
       </output>
     </operation>
+    <operation name="inputArrayDecimal">
+      <soap:operation soapAction="localhost#inputArrayDecimal"/>
+      <input>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="localhost"/>
+      </input>
+      <output>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="localhost"/>
+      </output>
+    </operation>
+    <operation name="inputArrayFloat">
+      <soap:operation soapAction="localhost#inputArrayFloat"/>
+      <input>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="localhost"/>
+      </input>
+      <output>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="localhost"/>
+      </output>
+    </operation>
   </binding>
   <service name="PHP2WSDL.Test.Fixtures.DataProvider.TestMethodInputArrayOfScalarsService">
     <port name="PHP2WSDL.Test.Fixtures.DataProvider.TestMethodInputArrayOfScalarsPort" binding="tns:PHP2WSDL.Test.Fixtures.DataProvider.TestMethodInputArrayOfScalarsBinding">
@@ -74,5 +98,11 @@
   </message>
   <message name="inputArrayIntegerIn">
     <part name="integers" type="soap-enc:Array"/>
+  </message>
+  <message name="inputArrayDecimalIn">
+    <part name="decimals" type="soap-enc:Array"/>
+  </message>
+  <message name="inputArrayFloatIn">
+    <part name="floats" type="soap-enc:Array"/>
   </message>
 </definitions>

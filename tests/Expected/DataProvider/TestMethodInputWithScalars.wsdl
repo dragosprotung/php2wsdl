@@ -1,0 +1,129 @@
+<?xml version="1.0"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="localhost" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="PHP2WSDL.Test.Fixtures.DataProvider.TestMethodInputWithScalars" targetNamespace="localhost">
+  <types>
+    <xsd:schema targetNamespace="localhost">
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+      <xsd:complexType name="DateTime">
+        <xsd:all/>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <portType name="PHP2WSDL.Test.Fixtures.DataProvider.TestMethodInputWithScalarsPort">
+    <operation name="inputString">
+      <input message="tns:inputStringIn"/>
+    </operation>
+    <operation name="inputBoolean">
+      <input message="tns:inputBooleanIn"/>
+    </operation>
+    <operation name="inputInteger">
+      <input message="tns:inputIntegerIn"/>
+    </operation>
+    <operation name="inputDouble">
+      <input message="tns:inputDoubleIn"/>
+    </operation>
+    <operation name="inputFloat">
+      <input message="tns:inputFloatIn"/>
+    </operation>
+    <operation name="inputDecimal">
+      <input message="tns:inputDecimalIn"/>
+    </operation>
+    <operation name="inputTime">
+      <input message="tns:inputTimeIn"/>
+    </operation>
+  </portType>
+  <binding name="PHP2WSDL.Test.Fixtures.DataProvider.TestMethodInputWithScalarsBinding" type="tns:PHP2WSDL.Test.Fixtures.DataProvider.TestMethodInputWithScalarsPort">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="inputString">
+      <soap:operation soapAction="localhost#inputString"/>
+      <input>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="localhost"/>
+      </input>
+      <output>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="localhost"/>
+      </output>
+    </operation>
+    <operation name="inputBoolean">
+      <soap:operation soapAction="localhost#inputBoolean"/>
+      <input>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="localhost"/>
+      </input>
+      <output>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="localhost"/>
+      </output>
+    </operation>
+    <operation name="inputInteger">
+      <soap:operation soapAction="localhost#inputInteger"/>
+      <input>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="localhost"/>
+      </input>
+      <output>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="localhost"/>
+      </output>
+    </operation>
+    <operation name="inputDouble">
+      <soap:operation soapAction="localhost#inputDouble"/>
+      <input>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="localhost"/>
+      </input>
+      <output>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="localhost"/>
+      </output>
+    </operation>
+    <operation name="inputFloat">
+      <soap:operation soapAction="localhost#inputFloat"/>
+      <input>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="localhost"/>
+      </input>
+      <output>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="localhost"/>
+      </output>
+    </operation>
+    <operation name="inputDecimal">
+      <soap:operation soapAction="localhost#inputDecimal"/>
+      <input>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="localhost"/>
+      </input>
+      <output>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="localhost"/>
+      </output>
+    </operation>
+    <operation name="inputTime">
+      <soap:operation soapAction="localhost#inputTime"/>
+      <input>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="localhost"/>
+      </input>
+      <output>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="localhost"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="PHP2WSDL.Test.Fixtures.DataProvider.TestMethodInputWithScalarsService">
+    <port name="PHP2WSDL.Test.Fixtures.DataProvider.TestMethodInputWithScalarsPort" binding="tns:PHP2WSDL.Test.Fixtures.DataProvider.TestMethodInputWithScalarsBinding">
+      <soap:address location="localhost"/>
+    </port>
+  </service>
+  <message name="inputStringIn">
+    <part name="input" type="xsd:string"/>
+  </message>
+  <message name="inputBooleanIn">
+    <part name="input1" type="xsd:boolean"/>
+    <part name="input2" type="xsd:boolean"/>
+  </message>
+  <message name="inputIntegerIn">
+    <part name="input1" type="xsd:int"/>
+    <part name="input2" type="xsd:int"/>
+  </message>
+  <message name="inputDoubleIn">
+    <part name="input" type="xsd:float"/>
+  </message>
+  <message name="inputFloatIn">
+    <part name="input" type="xsd:float"/>
+  </message>
+  <message name="inputDecimalIn">
+    <part name="input" type="xsd:decimal"/>
+  </message>
+  <message name="inputTimeIn">
+    <part name="input1" type="tns:DateTime"/>
+    <part name="input2" type="xsd:time"/>
+  </message>
+</definitions>

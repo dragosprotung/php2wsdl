@@ -4,13 +4,11 @@ namespace PHP2WSDL\Test\Fixtures\DataProvider;
 
 class TestMethodInputArrayOfScalars
 {
-
     /**
      * @param array $array Simple array.
      */
     public function inputArraySimple(array $array)
     {
-
     }
 
     /**
@@ -18,7 +16,6 @@ class TestMethodInputArrayOfScalars
      */
     public function inputArrayStrings(array $strings)
     {
-
     }
 
     /**
@@ -26,7 +23,6 @@ class TestMethodInputArrayOfScalars
      */
     public function inputArrayInt(array $ints)
     {
-
     }
 
     /**
@@ -34,6 +30,19 @@ class TestMethodInputArrayOfScalars
      */
     public function inputArrayInteger(array $integers)
     {
+    }
 
+    /**
+     * @param decimal[] $decimals Array of decimals.
+     */
+    public function inputArrayDecimal(array $decimals)
+    {
+    }
+
+    /**
+     * @param float[] $floats Array of floats.
+     */
+    public function inputArrayFloat(array $floats)
+    {
     }
 }

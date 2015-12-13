@@ -2,7 +2,6 @@
 
 namespace PHP2WSDL\Test;
 
-use DirectoryIterator;
 use PHP2WSDL\PHPClass2WSDL;
 
 class PHP2WSDLTest extends \PHPUnit_Framework_TestCase
@@ -30,10 +29,15 @@ class PHP2WSDLTest extends \PHPUnit_Framework_TestCase
         $this->assertWSDLFileEqualsWSDLString($expectedFile, $actual);
     }
 
+    /**
+     * Data provider.
+     *
+     * @return array
+     */
     public function dataProviderForTestInBatch()
     {
         $data = array();
-        $dir = new DirectoryIterator(__DIR__ . '/Fixtures/DataProvider');
+        $dir = new \DirectoryIterator(__DIR__ . '/Fixtures/DataProvider');
         foreach ($dir as $fileInfo) {
             if ($fileInfo->isFile()) {
                 $basename = $fileInfo->getBasename('.php');
@@ -69,7 +73,6 @@ class PHP2WSDLTest extends \PHPUnit_Framework_TestCase
 
         $this->assertWSDLFileEqualsWSDLString($expectedWSDLFile, $actual);
     }
-
 
     private function assertWSDLFileEqualsWSDLString($expectedFile, $actualString, $message = '')
     {
