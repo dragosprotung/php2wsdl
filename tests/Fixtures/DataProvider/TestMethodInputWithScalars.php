@@ -49,10 +49,11 @@ class TestMethodInputWithScalars
     }
 
     /**
-     * @param \DateTime $input1 Input 1.
-     * @param time $input2 Input 2.
+     * @param time $input1 Input 1.
+     * @param date $input2 Input 2.
+     * @param \DateTime $input3 Input 3.
      */
-    public function inputTime($input1, $input2)
+    public function inputTime($input1, $input2, $input3)
     {
     }
 }

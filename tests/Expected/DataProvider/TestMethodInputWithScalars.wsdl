@@ -123,7 +123,8 @@
     <part name="input" type="xsd:decimal"/>
   </message>
   <message name="inputTimeIn">
-    <part name="input1" type="tns:DateTime"/>
-    <part name="input2" type="xsd:time"/>
+    <part name="input1" type="xsd:time"/>
+    <part name="input2" type="xsd:date"/>
+    <part name="input3" type="tns:DateTime"/>
   </message>
 </definitions>
