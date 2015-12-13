@@ -28,6 +28,13 @@ class PHPClass2WSDL
     protected $uri;
 
     /**
+     * The URI to the stylesheet file.
+     *
+     * @var string
+     */
+    protected $xslUri;
+
+    /**
      * The WSDL document.
      *
      * @var \PHP2WSDL\WSDL
@@ -75,11 +82,24 @@ class PHPClass2WSDL
     }
 
     /**
+     * Set the stylesheet for the WSDL.
+     *
+     * @param string $xslUri The URI to the stylesheet.
+     * @return PHPClass2WSDL
+     */
+    public function setStylesheet($xslUri)
+    {
+        $this->xslUri = $xslUri;
+
+        return $this;
+    }
+
+    /**
      * Set the binding style.
      *
      * @param string $style The style (rpc or document).
      * @param string $transport The transport.
-     * @return \PHP2WSDL\PHPClass2WSDL
+     * @return PHPClass2WSDL
      */
     public function setBindingStyle($style, $transport)
     {
@@ -98,7 +118,7 @@ class PHPClass2WSDL
     {
         $qNameClassName = WSDL::typeToQName($this->class);
 
-        $this->wsdl = new WSDL($qNameClassName, $this->uri);
+        $this->wsdl = new WSDL($qNameClassName, $this->uri, $this->xslUri);
 
         $port = $this->wsdl->addPortType($qNameClassName . 'Port');
         $binding = $this->wsdl->addBinding($qNameClassName . 'Binding', 'tns:' . $qNameClassName . 'Port');

@@ -74,6 +74,19 @@ class PHP2WSDLTest extends \PHPUnit_Framework_TestCase
         $this->assertWSDLFileEqualsWSDLString($expectedWSDLFile, $actual);
     }
 
+    public function testGenerateWSDLWithStylesheet()
+    {
+        $class = 'PHP2WSDL\Test\Fixtures\TestGenerateWSDLWithStylesheet';
+        $expectedWSDLFile = __DIR__ . '/Expected/testGenerateWSDLWithStylesheet.wsdl';
+
+        $wsdlGenerator = new PHPClass2WSDL($class, 'localhost');
+        $wsdlGenerator->setStylesheet('/path/to/stylesheet.xsl');
+        $wsdlGenerator->generateWSDL(false);
+        $actual = $wsdlGenerator->dump();
+
+        $this->assertWSDLFileEqualsWSDLString($expectedWSDLFile, $actual);
+    }
+
     private function assertWSDLFileEqualsWSDLString($expectedFile, $actualString, $message = '')
     {
         $expected = file_get_contents($expectedFile);

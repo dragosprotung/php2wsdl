@@ -54,7 +54,7 @@ class WSDL
         'integer' => 'xsd:int',
         'double' => 'xsd:float',
         'float' => 'xsd:float',
-        'decimal'=>'xsd:decimal',
+        'decimal' => 'xsd:decimal',
         'array' => 'soap-enc:Array',
         'time' => 'xsd:time',
         'date' => 'xsd:date',
@@ -70,11 +70,16 @@ class WSDL
      *
      * @param string $name The name of the web service.
      * @param string $uri URI where the WSDL will be available.
+     * @param string $xslUri The URI to the stylesheet.
      * @throws RuntimeException If the DOM Document can not be created.
      */
-    public function __construct($name, $uri)
+    public function __construct($name, $uri, $xslUri = null)
     {
         $this->dom = new DOMDocument('1.0');
+        if ($xslUri !== null) {
+            $this->setStylesheet($xslUri);
+        }
+
         $definitions = $this->dom->createElementNS('http://schemas.xmlsoap.org/wsdl/', 'definitions');
         $definitions->setAttribute('name', $name);
         $definitions->setAttribute('targetNamespace', $uri);
@@ -98,6 +103,18 @@ class WSDL
         $types = $this->dom->createElement('types');
         $types->appendChild($this->schema);
         $this->wsdl->appendChild($types);
+    }
+
+    /**
+     * Set the stylesheet for the WSDL.
+     *
+     * @param string $xslUri The URI to the stylesheet.
+     * @return WSDL
+     */
+    private function setStylesheet($xslUri)
+    {
+        $xslt = $this->dom->createProcessingInstruction('xml-stylesheet', 'type="text/xsl" href="' . $xslUri . '"');
+        $this->dom->appendChild($xslt);
     }
 
     /**
