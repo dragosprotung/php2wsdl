@@ -54,6 +54,7 @@ class WSDL
         'integer' => 'xsd:int',
         'double' => 'xsd:float',
         'float' => 'xsd:float',
+        'decimal'=>'xsd:decimal',
         'array' => 'soap-enc:Array',
         'time' => 'xsd:time',
         'datetime' => 'xsd:dateTime',
