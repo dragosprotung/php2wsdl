@@ -63,7 +63,7 @@ class WSDL
         'unknown_type' => 'xsd:anyType',
         'mixed' => 'xsd:anyType',
         'object' => 'xsd:struct',
-		'base64binary' => 'xsd:base64binary'
+		'base64Binary' => 'xsd:base64Binary'
     );
 
     /**
