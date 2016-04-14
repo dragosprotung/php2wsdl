@@ -22,7 +22,7 @@ $ composer require php2wsdl/php2wsdl
 ``` php
 $class = "Vendor\\MyClass";
 $serviceURI = "http://www.myservice.com/soap";
-$wsdlGenerator = new PHPClass2WSDL($class, $serviceURI);
+$wsdlGenerator = new PHP2WSDL\PHPClass2WSDL($class, $serviceURI);
 // Generate thw WSDL from the class adding only the public methods that have @soap annotation.
 $wsdlGenerator->generateWSDL(true);
 $wsdlXML = $wsdlGenerator->dump();
