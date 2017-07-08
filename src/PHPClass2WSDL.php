@@ -255,12 +255,14 @@ class PHPClass2WSDL
     }
 
     /**
-     * Dump the WSDL as XML string.
+     * Dump the WSDL as XML string or file.
      *
-     * @return string
+     * @param string $filename Filename to dump
+     * @param bool $formatOutput Format output
+     * @return mixed
      */
-    public function dump()
+    public function dump($filename = null, $formatOutput = true)
     {
-        return $this->wsdl->dump();
+        return $this->wsdl->dump($filename, $formatOutput);
     }
 }

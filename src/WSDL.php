@@ -550,13 +550,24 @@ class WSDL
     }
 
     /**
-     * Dump the WSDL as XML string.
+     * Dump the WSDL as XML string or file.
      *
-     * @return string
+     * @param string $filename Filename to dump
+     * @param bool $formatOutput Format output
+     * @return mixed
      */
-    public function dump()
+    public function dump($filename = null, $formatOutput = true)
     {
-        $this->dom->formatOutput = true;
+        // Format output
+        if ($formatOutput === true) {
+            $this->dom->formatOutput = true;
+        }
+
+        // Dump into file
+        if ($filename) {
+            return $this->dom->save($filename);
+        }
+
         return $this->dom->saveXML();
     }
 
