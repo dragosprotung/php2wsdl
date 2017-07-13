@@ -550,25 +550,36 @@ class WSDL
     }
 
     /**
-     * Dump the WSDL as XML string or file.
+     * Dump the WSDL as XML string.
      *
-     * @param string $filename Filename to dump
      * @param bool $formatOutput Format output
      * @return mixed
      */
-    public function dump($filename = null, $formatOutput = true)
+    public function dump($formatOutput = true)
     {
         // Format output
         if ($formatOutput === true) {
             $this->dom->formatOutput = true;
         }
 
-        // Dump into file
-        if ($filename) {
-            return $this->dom->save($filename);
+        return $this->dom->saveXML();
+    }
+
+    /**
+     * Dump the WSDL as file.
+     *
+     * @param string $filename Filename to dump
+     * @param bool $formatOutput Format output
+     * @return mixed
+     */
+    public function save($filename, $formatOutput = true)
+    {
+        // Format output
+        if ($formatOutput === true) {
+            $this->dom->formatOutput = true;
         }
 
-        return $this->dom->saveXML();
+        return $this->dom->save($filename);
     }
 
     /**
