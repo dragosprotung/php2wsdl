@@ -23,9 +23,12 @@ $ composer require php2wsdl/php2wsdl
 $class = "Vendor\\MyClass";
 $serviceURI = "http://www.myservice.com/soap";
 $wsdlGenerator = new PHP2WSDL\PHPClass2WSDL($class, $serviceURI);
-// Generate thw WSDL from the class adding only the public methods that have @soap annotation.
+// Generate the WSDL from the class adding only the public methods that have @soap annotation.
 $wsdlGenerator->generateWSDL(true);
+// Dump as string
 $wsdlXML = $wsdlGenerator->dump();
+// Or save as file
+$wsdlXML = $wsdlGenerator->save('foo/example.wsdl');
 ```
 
 ## Testing
