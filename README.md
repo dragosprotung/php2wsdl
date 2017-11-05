@@ -7,7 +7,7 @@
 [![Quality Score](https://img.shields.io/scrutinizer/g/dragosprotung/php2wsdl.svg?style=flat-square)](https://scrutinizer-ci.com/g/dragosprotung/php2wsdl)
 [![Total Downloads](https://img.shields.io/packagist/dt/php2wsdl/php2wsdl.svg?style=flat-square)](https://packagist.org/packages/php2wsdl/php2wsdl)
 
-Create WSDL files form PHP classes.
+Create WSDL files from PHP classes.
 
 ## Install
 
