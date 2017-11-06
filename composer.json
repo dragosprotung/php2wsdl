@@ -1,36 +1,39 @@
 {
-    "name": "php2wsdl/php2wsdl",
-    "description": "Create WSDL files form PHP classes.",
-    "type": "library",
-    "keywords": [
-        "wsdl",
-        "wsdl generator",
-        "web services"
-    ],
-    "homepage": "http://github.com/dragosprotung/php2wsdl",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Dragos Protung",
-            "email": "dragos@protung.ro"
-        }
-    ],
-    "require": {
-        "php": ">=5.4",
-        "wingu/reflection": "~1.0"
-    },
-    "require-dev": {
-        "phpunit/phpunit" : "~4.8",
-        "scrutinizer/ocular": "~1.1"
-    },
-    "autoload": {
-        "psr-4": {
-            "PHP2WSDL\\": "src"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "PHP2WSDL\\Test\\": "tests"
-        }
+  "name": "php2wsdl/php2wsdl",
+  "description": "Create WSDL files form PHP classes.",
+  "type": "library",
+  "keywords": [
+    "wsdl",
+    "wsdl generator",
+    "web services"
+  ],
+  "config": {
+    "preferred-install": "dist"
+  },
+  "homepage": "http://github.com/dragosprotung/php2wsdl",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Dragos Protung",
+      "email": "dragos@protung.ro"
     }
+  ],
+  "require": {
+    "php": ">=5.4",
+    "wingu/reflection": "~1.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "~4.8",
+    "scrutinizer/ocular": "~1.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "PHP2WSDL\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "PHP2WSDL\\Test\\": "tests"
+    }
+  }
 }
