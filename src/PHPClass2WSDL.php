@@ -124,11 +124,6 @@ class PHPClass2WSDL
         $binding = $this->wsdl->addBinding($qNameClassName . 'Binding', 'tns:' . $qNameClassName . 'Port');
 
         $this->wsdl->addSoapBinding($binding, $this->bindingStyle['style'], $this->bindingStyle['transport']);
-        $this->wsdl->addService(
-            $qNameClassName . 'Service', $qNameClassName . 'Port',
-            'tns:' . $qNameClassName . 'Binding',
-            $this->uri
-        );
 
         $ref = new ReflectionClass($this->class);
         foreach ($ref->getMethods() as $method) {
@@ -136,6 +131,12 @@ class PHPClass2WSDL
                 $this->addMethodToWsdl($method, $port, $binding);
             }
         }
+
+        $this->wsdl->addService(
+            $qNameClassName . 'Service', $qNameClassName . 'Port',
+            'tns:' . $qNameClassName . 'Binding',
+            $this->uri
+        );
     }
 
     /**
