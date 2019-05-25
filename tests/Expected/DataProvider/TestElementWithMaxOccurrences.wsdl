@@ -30,12 +30,12 @@
       </output>
     </operation>
   </binding>
+  <message name="inputObjectIn">
+    <part name="object" type="tns:PHP2WSDL.Test.Stub.MaxOccurrences"/>
+  </message>
   <service name="PHP2WSDL.Test.Fixtures.DataProvider.TestElementWithMaxOccurrencesService">
     <port name="PHP2WSDL.Test.Fixtures.DataProvider.TestElementWithMaxOccurrencesPort" binding="tns:PHP2WSDL.Test.Fixtures.DataProvider.TestElementWithMaxOccurrencesBinding">
       <soap:address location="localhost"/>
     </port>
   </service>
-  <message name="inputObjectIn">
-    <part name="object" type="tns:PHP2WSDL.Test.Stub.MaxOccurrences"/>
-  </message>
 </definitions>

@@ -34,15 +34,15 @@
       </output>
     </operation>
   </binding>
-  <service name="PHP2WSDL.Test.Fixtures.DataProvider.TestMethodInputBase64BinaryService">
-    <port name="PHP2WSDL.Test.Fixtures.DataProvider.TestMethodInputBase64BinaryPort" binding="tns:PHP2WSDL.Test.Fixtures.DataProvider.TestMethodInputBase64BinaryBinding">
-      <soap:address location="localhost"/>
-    </port>
-  </service>
   <message name="inputBase64BinaryIn">
     <part name="base64binary" type="xsd:base64Binary"/>
   </message>
   <message name="inputBase64BinaryArrayIn">
     <part name="base64binaries" type="soap-enc:Array"/>
   </message>
+  <service name="PHP2WSDL.Test.Fixtures.DataProvider.TestMethodInputBase64BinaryService">
+    <port name="PHP2WSDL.Test.Fixtures.DataProvider.TestMethodInputBase64BinaryPort" binding="tns:PHP2WSDL.Test.Fixtures.DataProvider.TestMethodInputBase64BinaryBinding">
+      <soap:address location="localhost"/>
+    </port>
+  </service>
 </definitions>

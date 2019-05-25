@@ -24,11 +24,6 @@
       </output>
     </operation>
   </binding>
-  <service name="PHP2WSDL.Test.Fixtures.TestGenerateWSDLForURIWithAllComponentsService">
-    <port name="PHP2WSDL.Test.Fixtures.TestGenerateWSDLForURIWithAllComponentsPort" binding="tns:PHP2WSDL.Test.Fixtures.TestGenerateWSDLForURIWithAllComponentsBinding">
-      <soap:address location="http://usr:pss@example.com:81/path/file.ext?r=a/b/c&amp;a=1&amp;b[]=2&amp;b[]=3"/>
-    </port>
-  </service>
   <message name="addIn">
     <part name="p1" type="xsd:float"/>
     <part name="p2" type="xsd:float"/>
@@ -36,4 +31,9 @@
   <message name="addOut">
     <part name="return" type="xsd:float"/>
   </message>
+  <service name="PHP2WSDL.Test.Fixtures.TestGenerateWSDLForURIWithAllComponentsService">
+    <port name="PHP2WSDL.Test.Fixtures.TestGenerateWSDLForURIWithAllComponentsPort" binding="tns:PHP2WSDL.Test.Fixtures.TestGenerateWSDLForURIWithAllComponentsBinding">
+      <soap:address location="http://usr:pss@example.com:81/path/file.ext?r=a/b/c&amp;a=1&amp;b[]=2&amp;b[]=3"/>
+    </port>
+  </service>
 </definitions>

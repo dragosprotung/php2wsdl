@@ -28,12 +28,12 @@
       </output>
     </operation>
   </binding>
+  <message name="inputObjectIn">
+    <part name="object" type="tns:PHP2WSDL.Test.Stub.MinMaxOccurrencesOfOne"/>
+  </message>
   <service name="PHP2WSDL.Test.Fixtures.DataProvider.TestElementWithMinAndMaxOccurrencesOfOneService">
     <port name="PHP2WSDL.Test.Fixtures.DataProvider.TestElementWithMinAndMaxOccurrencesOfOnePort" binding="tns:PHP2WSDL.Test.Fixtures.DataProvider.TestElementWithMinAndMaxOccurrencesOfOneBinding">
       <soap:address location="localhost"/>
     </port>
   </service>
-  <message name="inputObjectIn">
-    <part name="object" type="tns:PHP2WSDL.Test.Stub.MinMaxOccurrencesOfOne"/>
-  </message>
 </definitions>
