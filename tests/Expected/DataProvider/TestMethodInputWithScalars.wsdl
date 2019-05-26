@@ -97,11 +97,6 @@
       </output>
     </operation>
   </binding>
-  <service name="PHP2WSDL.Test.Fixtures.DataProvider.TestMethodInputWithScalarsService">
-    <port name="PHP2WSDL.Test.Fixtures.DataProvider.TestMethodInputWithScalarsPort" binding="tns:PHP2WSDL.Test.Fixtures.DataProvider.TestMethodInputWithScalarsBinding">
-      <soap:address location="localhost"/>
-    </port>
-  </service>
   <message name="inputStringIn">
     <part name="input" type="xsd:string"/>
   </message>
@@ -127,4 +122,9 @@
     <part name="input2" type="xsd:date"/>
     <part name="input3" type="tns:DateTime"/>
   </message>
+  <service name="PHP2WSDL.Test.Fixtures.DataProvider.TestMethodInputWithScalarsService">
+    <port name="PHP2WSDL.Test.Fixtures.DataProvider.TestMethodInputWithScalarsPort" binding="tns:PHP2WSDL.Test.Fixtures.DataProvider.TestMethodInputWithScalarsBinding">
+      <soap:address location="localhost"/>
+    </port>
+  </service>
 </definitions>

@@ -32,12 +32,12 @@
       </output>
     </operation>
   </binding>
+  <message name="inputArrayOfObjectsIn">
+    <part name="objects" type="tns:ArrayOfstdClass"/>
+  </message>
   <service name="PHP2WSDL.Test.Fixtures.DataProvider.TestMethodInputArrayOfObjectsService">
     <port name="PHP2WSDL.Test.Fixtures.DataProvider.TestMethodInputArrayOfObjectsPort" binding="tns:PHP2WSDL.Test.Fixtures.DataProvider.TestMethodInputArrayOfObjectsBinding">
       <soap:address location="localhost"/>
     </port>
   </service>
-  <message name="inputArrayOfObjectsIn">
-    <part name="objects" type="tns:ArrayOfstdClass"/>
-  </message>
 </definitions>

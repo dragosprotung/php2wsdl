@@ -82,11 +82,6 @@
       </output>
     </operation>
   </binding>
-  <service name="PHP2WSDL.Test.Fixtures.DataProvider.TestMethodInputArrayOfScalarsService">
-    <port name="PHP2WSDL.Test.Fixtures.DataProvider.TestMethodInputArrayOfScalarsPort" binding="tns:PHP2WSDL.Test.Fixtures.DataProvider.TestMethodInputArrayOfScalarsBinding">
-      <soap:address location="localhost"/>
-    </port>
-  </service>
   <message name="inputArraySimpleIn">
     <part name="array" type="soap-enc:Array"/>
   </message>
@@ -105,4 +100,9 @@
   <message name="inputArrayFloatIn">
     <part name="floats" type="soap-enc:Array"/>
   </message>
+  <service name="PHP2WSDL.Test.Fixtures.DataProvider.TestMethodInputArrayOfScalarsService">
+    <port name="PHP2WSDL.Test.Fixtures.DataProvider.TestMethodInputArrayOfScalarsPort" binding="tns:PHP2WSDL.Test.Fixtures.DataProvider.TestMethodInputArrayOfScalarsBinding">
+      <soap:address location="localhost"/>
+    </port>
+  </service>
 </definitions>

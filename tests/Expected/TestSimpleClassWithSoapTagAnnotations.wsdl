@@ -24,11 +24,6 @@
       </output>
     </operation>
   </binding>
-  <service name="PHP2WSDL.Test.Fixtures.TestSimpleClassWithSoapTagAnnotationsService">
-    <port name="PHP2WSDL.Test.Fixtures.TestSimpleClassWithSoapTagAnnotationsPort" binding="tns:PHP2WSDL.Test.Fixtures.TestSimpleClassWithSoapTagAnnotationsBinding">
-      <soap:address location="localhost"/>
-    </port>
-  </service>
   <message name="addIn">
     <part name="p1" type="xsd:float"/>
     <part name="p2" type="xsd:float"/>
@@ -36,4 +31,9 @@
   <message name="addOut">
     <part name="return" type="xsd:float"/>
   </message>
+  <service name="PHP2WSDL.Test.Fixtures.TestSimpleClassWithSoapTagAnnotationsService">
+    <port name="PHP2WSDL.Test.Fixtures.TestSimpleClassWithSoapTagAnnotationsPort" binding="tns:PHP2WSDL.Test.Fixtures.TestSimpleClassWithSoapTagAnnotationsBinding">
+      <soap:address location="localhost"/>
+    </port>
+  </service>
 </definitions>

@@ -51,11 +51,6 @@
       </output>
     </operation>
   </binding>
-  <service name="PHP2WSDL.Test.Fixtures.TestSimpleClassWithoutSoapTagAnnotationsService">
-    <port name="PHP2WSDL.Test.Fixtures.TestSimpleClassWithoutSoapTagAnnotationsPort" binding="tns:PHP2WSDL.Test.Fixtures.TestSimpleClassWithoutSoapTagAnnotationsBinding">
-      <soap:address location="localhost"/>
-    </port>
-  </service>
   <message name="__constructIn">
     <part name="param2" type="xsd:string"/>
   </message>
@@ -73,4 +68,9 @@
   <message name="makeArrayOut">
     <part name="return" type="soap-enc:Array"/>
   </message>
+  <service name="PHP2WSDL.Test.Fixtures.TestSimpleClassWithoutSoapTagAnnotationsService">
+    <port name="PHP2WSDL.Test.Fixtures.TestSimpleClassWithoutSoapTagAnnotationsPort" binding="tns:PHP2WSDL.Test.Fixtures.TestSimpleClassWithoutSoapTagAnnotationsBinding">
+      <soap:address location="localhost"/>
+    </port>
+  </service>
 </definitions>

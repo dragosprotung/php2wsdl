@@ -30,12 +30,12 @@
       </output>
     </operation>
   </binding>
+  <message name="inputObjectIn">
+    <part name="object" type="tns:PHP2WSDL.Test.Stub.MinOccurrences"/>
+  </message>
   <service name="PHP2WSDL.Test.Fixtures.DataProvider.TestElementWithMinOccurrencesService">
     <port name="PHP2WSDL.Test.Fixtures.DataProvider.TestElementWithMinOccurrencesPort" binding="tns:PHP2WSDL.Test.Fixtures.DataProvider.TestElementWithMinOccurrencesBinding">
       <soap:address location="localhost"/>
     </port>
   </service>
-  <message name="inputObjectIn">
-    <part name="object" type="tns:PHP2WSDL.Test.Stub.MinOccurrences"/>
-  </message>
 </definitions>
