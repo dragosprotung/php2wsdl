@@ -188,6 +188,10 @@ class PHPClass2WSDL
                 }
 
                 $args[$param->getName()] = array('type' => $this->wsdl->getXSDType($type));
+
+                if ($param->isOptional()) {
+                    $args[$param->getName()]['nillable'] = 'true';
+                }
             }
         }
 
