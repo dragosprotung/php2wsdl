@@ -2,7 +2,7 @@
 
 [![Latest Version](https://img.shields.io/github/tag/dragosprotung/php2wsdl.svg?style=flat-square)](https://github.com/dragosprotung/php2wsdl/releases)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
-[![Build Status](https://img.shields.io/travis/dragosprotung/php2wsdl/master.svg?style=flat-square)](https://travis-ci.org/dragosprotung/php2wsdl)
+[![Build Status](https://github.com/dragosprotung/php2wsdl/actions/workflows/build.yml/badge.svg)](https://github.com/dragosprotung/php2wsdl/actions/workflows/build.yml)
 [![Coverage Status](https://img.shields.io/scrutinizer/coverage/g/dragosprotung/php2wsdl.svg?style=flat-square)](https://scrutinizer-ci.com/g/dragosprotung/php2wsdl/code-structure)
 [![Quality Score](https://img.shields.io/scrutinizer/g/dragosprotung/php2wsdl.svg?style=flat-square)](https://scrutinizer-ci.com/g/dragosprotung/php2wsdl)
 [![Total Downloads](https://img.shields.io/packagist/dt/php2wsdl/php2wsdl.svg?style=flat-square)](https://packagist.org/packages/php2wsdl/php2wsdl)
@@ -21,7 +21,7 @@ $ composer require php2wsdl/php2wsdl
 
 ``` php
 $class = "Vendor\\MyClass";
-$serviceURI = "http://www.myservice.com/soap";
+$serviceURI = "https://www.myservice.com/soap";
 $wsdlGenerator = new PHP2WSDL\PHPClass2WSDL($class, $serviceURI);
 // Generate the WSDL from the class adding only the public methods that have @soap annotation.
 $wsdlGenerator->generateWSDL(true);
@@ -34,7 +34,7 @@ $wsdlXML = $wsdlGenerator->save('foo/example.wsdl');
 ## Testing
 
 ``` bash
-$ phpunit
+$ vendor/bin/simple-phpunit
 ```
 
 ## Security
