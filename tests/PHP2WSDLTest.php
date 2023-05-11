@@ -3,8 +3,9 @@
 namespace PHP2WSDL\Test;
 
 use PHP2WSDL\PHPClass2WSDL;
+use PHPUnit\Framework\TestCase as BaseTestCase;
 
-class PHP2WSDLTest extends \PHPUnit_Framework_TestCase
+class PHP2WSDLTest extends BaseTestCase
 {
 
     public function testSimpleClassWithSoapTagAnnotations()

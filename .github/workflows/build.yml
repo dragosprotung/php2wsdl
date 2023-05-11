@@ -1,0 +1,39 @@
+name: Build
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+    strategy:
+      matrix:
+        php-versions:
+          - 7.2
+          - 7.3
+          - 7.4
+          - 8.0
+          - 8.1
+          - 8.2
+    name: PHP ${{ matrix.php-versions }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          coverage: xdebug
+          php-version: ${{ matrix.php-versions }}
+
+      - name: Install dependencies
+        run: composer update --prefer-dist --no-progress --no-suggest
+
+      - name: Run tests
+        run: vendor/bin/simple-phpunit --coverage-text --coverage-clover=coverage.clover
+
+#      - name: Upload code coverage
+#        run: vendor/bin/ocular code-coverage:upload --format=php-clover coverage.clover
