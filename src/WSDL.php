@@ -110,7 +110,6 @@ class WSDL
      * Set the stylesheet for the WSDL.
      *
      * @param string $xslUri The URI to the stylesheet.
-     * @return WSDL
      */
     private function setStylesheet($xslUri)
     {
@@ -211,12 +210,12 @@ class WSDL
      *
      * @param DOMElement $binding The binding element (from addBinding() method).
      * @param string $name The name of the operation.
-     * @param array $input Attributes for the input element (use, namespace, encodingStyle).
-     * @param array $output Attributes for the output element (use, namespace, encodingStyle).
+     * @param array|null $input Attributes for the input element (use, namespace, encodingStyle).
+     * @param array|null $output Attributes for the output element (use, namespace, encodingStyle).
      * @return DOMElement
      * @link http://www.w3.org/TR/wsdl#_soap:body
      */
-    public function addBindingOperation(DOMElement $binding, $name, array $input = null, array $output = null)
+    public function addBindingOperation(DOMElement $binding, $name, ?array $input = null, ?array $output = null)
     {
         $operation = $this->dom->createElement('operation');
         $operation->setAttribute('name', $name);

@@ -250,7 +250,7 @@ class PHPClass2WSDL
 
         // Add any documentation for the operation.
         $description = $method->getReflectionDocComment()->getFullDescription();
-        if (isset($description) && (strlen($description) > 0)) {
+        if (strlen($description) > 0) {
             $this->wsdl->addDocumentation($portOperation, $description);
         }
 
