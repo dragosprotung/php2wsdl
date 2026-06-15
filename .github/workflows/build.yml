@@ -8,8 +8,9 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
         php-versions:
           - 7.2
@@ -18,10 +19,13 @@ jobs:
           - 8.0
           - 8.1
           - 8.2
+          - 8.3
+          - 8.4
+          - 8.5
     name: PHP ${{ matrix.php-versions }}
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v6
 
       - name: Install PHP
         uses: shivammathur/setup-php@v2
@@ -34,6 +38,3 @@ jobs:
 
       - name: Run tests
         run: vendor/bin/simple-phpunit --coverage-text --coverage-clover=coverage.clover
-
-#      - name: Upload code coverage
-#        run: vendor/bin/ocular code-coverage:upload --format=php-clover coverage.clover

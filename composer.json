@@ -23,8 +23,7 @@
     "wingu/reflection": "~1.0"
   },
   "require-dev": {
-    "symfony/phpunit-bridge": "^6.0",
-    "scrutinizer/ocular": "~1.1"
+    "symfony/phpunit-bridge": "^6.0"
   },
   "autoload": {
     "psr-4": {
